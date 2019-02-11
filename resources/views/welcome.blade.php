@@ -20,15 +20,8 @@
     </head>
 
     <body>
-        <div class="flex-center">
-            <img  src="img/background.jpg" alt="banner">
-            <h6 class="banner-text"> CSE SOCIETY
-                <br>
-                <font size="5vh"> Metropolitan University </font> </h6>
-        </div>
-
         <div class="side-bar" id="Side-bar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&times;</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&otimes;</a>
 
             <div class="side-menu">
                 <a href="#Home" style="border:0; margin-top: 70px;">
@@ -45,9 +38,9 @@
         <a href="javascript:void(0);" class="icon" onclick="openSideBar()">
             <i class="fa fa-bars"> </i> </a>
 
-        <div class="nav-bar" id="Nav-bar">
+        <div class="nav-bar dynBack" id="Nav-bar">
             <div class="nav-menu">
-                <a href="#Home" style="border:0"> <img src="img/logo.png" alt=""> </a>
+                <a href="#Home" style="border:0; padding-top:1vh"> <img src="img/logo.png" alt=""> </a>
 
                 <a href="#About"> About Us 
                 <span class="vertical-bar"> &nbsp; </span> </a>
@@ -71,6 +64,13 @@
             </div>
         </div>
 
+        <div class="flex-center">
+            <img  src="img/banner.jpg" alt="banner">
+            <h6 class="banner-text"> CSE SOCIETY
+            <br>
+            <font size="4vh" font-weight="normal"> Metropolitan University </font> </h6>
+        </div>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -89,12 +89,45 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://www.facebook.com/yc.2797" target="blank">
+                        Yeamin Chowdhury </a>
+                    <a href="https://www.facebook.com/profile.php?id=100007265493910" target="blank">
+                        Alim Uddin </a>
+                    <a href="https://github.com/yc27/cse_society" target="blank">
+                        GitHub Repository </a>
                 </div>
+            </div>
+        </div>
+
+        <div class="block-center position-ref content">
+            <div id="News">
+                <h4> TEST </h4>
+                <br>
+            </div>
+
+            <div id="Eventes">
+                <h4> TEST </h4>
+                <br>
+            </div>
+
+            <div id="Gallery">
+                <h4> TEST </h4>
+                <br>
+            </div>
+
+            <div id="Committe">
+                <h4> TEST </h4>
+                <br>
+            </div>
+
+            <div id="About">
+                <h4> TEST </h4>
+                <br>
+            </div>
+
+            <div id="Contact">
+                <h4> TEST </h4>
+                <br>
             </div>
         </div>
 
@@ -109,6 +142,20 @@
             function closeSideBar() {
                 document.getElementById("Side-bar").style.width = "0%";
             }
+        </script>
+
+        <script>
+            [red, green, blue] = [33, 40, 61];
+            dynBack = document.querySelector('.dynBack');
+                h = document.documentElement.clientHeight;
+                x = (h * 0.3);
+                h = (h-x) * 0.3;
+
+            window.addEventListener('scroll', () => {
+                a = Math.min(1.0, (window.scrollY || window.pageYOffset) / h);
+                [r, g, b, y] = [red, green, blue, a];
+                dynBack.style.background = `rgba(${r}, ${g}, ${b}, ${y})`;
+            });
         </script>
     </body>
 </html>
