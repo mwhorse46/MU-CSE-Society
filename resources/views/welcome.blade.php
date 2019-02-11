@@ -27,32 +27,48 @@
                 <font size="5vh"> Metropolitan University </font> </h6>
         </div>
 
-        <div class="overlay">
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"> </i> </a>
+        <div class="side-bar" id="Side-bar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&times;</a>
 
-                <div class="menu" id="navmenu">
-                    <a href="#Home" style="border:0"> <img src="img/logo.png" alt=""> </a>
-                    <a href="#About"> About Us 
-                    <span class="vertical-bar"> &nbsp; </span> </a>
+            <div class="side-menu">
+                <a href="#Home" style="border:0; margin-top: 70px;">
+                    <img src="img/logo.png" alt="logo"> </a>
+                <a href="#About"> About Us </a>
+                <a href="#News"> News </a>
+                <a href="#Events"> Events </a>
+                <a href="#Gallery"> Gallery </a>
+                <a href="#Committe"> Committe </a>
+                <a href="#Contact"> Contact Us </a>
+                <a href="#Login"> Admin Login </a>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="openSideBar()">
+            <i class="fa fa-bars"> </i> </a>
 
-                    <a href="#News"> News
-                    <span class="vertical-bar"> &nbsp; </span> </a>
+        <div class="nav-bar" id="Nav-bar">
+            <div class="nav-menu">
+                <a href="#Home" style="border:0"> <img src="img/logo.png" alt=""> </a>
 
-                    <a href="#Events"> Events
-                    <span class="vertical-bar"> &nbsp; </span> </a>
+                <a href="#About"> About Us 
+                <span class="vertical-bar"> &nbsp; </span> </a>
 
-                    <a href="#Gallery"> Gallery 
-                    <span class="vertical-bar"> &nbsp; </span> </a>
+                <a href="#News"> News
+                <span class="vertical-bar"> &nbsp; </span> </a>
 
-                    <a href="#Committe"> Committe 
-                    <span class="vertical-bar"> &nbsp; </span> </a>
+                <a href="#Events"> Events
+                <span class="vertical-bar"> &nbsp; </span> </a>
 
-                    <a href="#Contact"> Contact Us
-                    <span class="vertical-bar"> &nbsp; </span> </a>
+                <a href="#Gallery"> Gallery 
+                <span class="vertical-bar"> &nbsp; </span> </a>
 
-                    <a href="#Login"> Admin Login </a>
-                </div>
+                <a href="#Committe"> Committe 
+                <span class="vertical-bar"> &nbsp; </span> </a>
+
+                <a href="#Contact"> Contact Us
+                <span class="vertical-bar"> &nbsp; </span> </a>
+
+                <a href="#Login"> Admin Login </a>
+            </div>
         </div>
 
         <div class="flex-center position-ref full-height">
@@ -84,13 +100,14 @@
 
         <!-- script -->
         <script>
-            function myFunction() {
-                var x = document.getElementById("navmenu");
-                if (x.className === "menu") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "menu";
-                }
+            function openSideBar() {
+                document.getElementById("Side-bar").style.width = "200px";
+            }
+        </script>
+
+        <script>
+            function closeSideBar() {
+                document.getElementById("Side-bar").style.width = "0%";
             }
         </script>
     </body>

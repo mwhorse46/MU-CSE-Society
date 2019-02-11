@@ -44,37 +44,79 @@ html, body {
     color: #FFFFFF;
 }
 
-.overlay {
+.side-bar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #363c4f;
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
     transition: 0.5s;
+}
 
-    padding-top: 2px;
+.side-bar .closebtn {
     position: absolute;
-    top: 2vh;
-    left: 2vw;
-}
-/*
-.overlay .menu {
-}*/
-
-.overlay .menu .vertical-bar {
-    border-right: 1px solid white;
-    padding-left: 8px;
-    float: none;
+    top: 3px;
+    right: 2vw;
+    font-size: 6vh;
+    color: #FFFFFF;
 }
 
-.overlay .menu img {
+.side-menu {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.side-menu img, .nav-menu img {
     height: 8vh;
     width: 8vh;
     border: #363c4f 3px solid;
     border-radius: 50%;
 }
 
-.overlay .menu {
+.side-menu a {
+    display: block;
+    float: none;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 6vh;
+    padding: 4px 6px;
+    border-top: 2px #636b6f dotted;
+}
+
+.side-menu a:hover, .nav-menu a:hover {
+    font-weight: bold;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+}
+
+.side-menu a:visited, .nav-menu a:visited{
+    color: #FFFFFF;
+}
+
+.icon {
+    display: none;
+}
+
+.nav-bar {
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    padding-top: 2px;
     display: block;
     font-family: 'Lato', sans-serif;
 }
 
-.overlay .menu a {
+.nav-menu .vertical-bar {
+    border-right: 1px solid white;
+    padding-left: 8px;
+    float: none;
+}
+
+.nav-menu a {
     float: left;
     text-decoration: none;
     font-size: 18px;
@@ -83,51 +125,16 @@ html, body {
     padding-right: 0;
 }
 
-.overlay .menu a:hover {
-    font-weight: bold;
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
-}
+@media screen and (max-width: 900px) {
+    .nav-bar {display: none;}
 
-.overlay .menu a:visited {
-    color: #FFFFFF;
-}
-
-.overlay .icon {
-    display: none;
-    border: 0;
-}
-
-@media screen and (max-width: 1200px) {
-    .overlay .menu {display: none;}
-
-    .overlay .icon {
+    .icon {
         display: block;
         float: left;
         color: #FFFFFF;
         position: absolute;
         top: 2vh;
         left: 2vw;
-    }
-
-    .overlay .menu.responsive a{
-        display: block;
-        float: none;
-        border-top: 2px #636b6f dotted;
-    }
-
-    .overlay .menu.responsive {
-        text-align: center;
-        display: block;
-        position: relative;
-        top: 6vh;
-        z-index: 1;
-        width: 200px;
-        height: 100vh;
-        background: #363c4f;
-    }
-
-    .overlay .menu.responsive .vertical-bar {
-        display: none;
     }
 }
 
