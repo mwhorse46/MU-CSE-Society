@@ -1,0 +1,150 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.flex-center img{
+    width: 100vw;
+    height: 30vh;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.banner-text {
+    left: 3vw;
+    top: 1vh;
+    font-size: 5vh;
+    position: absolute;
+    color: #FFFFFF;
+}
+
+.overlay {
+    transition: 0.5s;
+
+    padding-top: 2px;
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+}
+/*
+.overlay .menu {
+}*/
+
+.overlay .menu .vertical-bar {
+    border-right: 1px solid white;
+    padding-left: 8px;
+    float: none;
+}
+
+.overlay .menu img {
+    height: 8vh;
+    width: 8vh;
+    border: #363c4f 3px solid;
+    border-radius: 50%;
+}
+
+.overlay .menu {
+    display: block;
+    font-family: 'Lato', sans-serif;
+}
+
+.overlay .menu a {
+    float: left;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 8vh;
+    padding: 4px 8px;
+    padding-right: 0;
+}
+
+.overlay .menu a:hover {
+    font-weight: bold;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+}
+
+.overlay .menu a:visited {
+    color: #FFFFFF;
+}
+
+.overlay .icon {
+    display: none;
+    border: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .overlay .menu {display: none;}
+
+    .overlay .icon {
+        display: block;
+        float: left;
+        color: #FFFFFF;
+        position: absolute;
+        top: 2vh;
+        left: 2vw;
+    }
+
+    .overlay .menu.responsive a{
+        display: block;
+        float: none;
+        border-top: 2px #636b6f dotted;
+    }
+
+    .overlay .menu.responsive {
+        text-align: center;
+        display: block;
+        position: relative;
+        top: 6vh;
+        z-index: 1;
+        width: 200px;
+        height: 100vh;
+        background: #363c4f;
+    }
+
+    .overlay .menu.responsive .vertical-bar {
+        display: none;
+    }
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
