@@ -8,20 +8,20 @@
         <title>CSE SOCIETY</title>
 
         <!-- style -->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+        <!-- script -->
+        <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Open+Sans:400,700" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
-
-        <!-- icon -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:100,600">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Open+Sans:400,700">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,700">
     </head>
 
     <body>
         <div class="side-bar" id="Side-bar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&otimes;</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&lAarr;</a>
 
             <div class="side-menu">
                 <a href="#Home" style="border:0; margin-top: 70px;">
@@ -32,57 +32,43 @@
                 <a href="#Gallery"> Gallery </a>
                 <a href="#Committe"> Committe </a>
                 <a href="#Contact"> Contact Us </a>
-                <a href="#Login"> Admin Login </a>
+                <a href="{{ route('login') }}"> Admin Login </a>
             </div>
         </div>
-        <a href="javascript:void(0);" class="icon" onclick="openSideBar()">
-            <i class="fa fa-bars"> </i> </a>
+        <a href="javascript:void(0);" class="openbtn" onclick="openSideBar()"> &rAarr; </a>
 
-        <div class="nav-bar dynBack" id="Nav-bar">
-            <div class="nav-menu">
-                <a href="#Home" style="border:0; padding-top:1vh"> <img src="img/logo.png" alt=""> </a>
+        <div class="nav-bar" id="Nav-bar">
+            <a href="#Home" style="border:0; padding-top:1vh"> <img src="img/logo.png" alt=""> </a>
 
-                <a href="#About"> About Us 
-                <span class="vertical-bar"> &nbsp; </span> </a>
+            <a href="#About"> About Us 
+            <span class="vertical-bar"> &nbsp; </span> </a>
 
-                <a href="#News"> News
-                <span class="vertical-bar"> &nbsp; </span> </a>
+            <a href="#News"> News
+            <span class="vertical-bar"> &nbsp; </span> </a>
 
-                <a href="#Events"> Events
-                <span class="vertical-bar"> &nbsp; </span> </a>
+            <a href="#Events"> Events
+            <span class="vertical-bar"> &nbsp; </span> </a>
 
-                <a href="#Gallery"> Gallery 
-                <span class="vertical-bar"> &nbsp; </span> </a>
+            <a href="#Gallery"> Gallery 
+            <span class="vertical-bar"> &nbsp; </span> </a>
 
-                <a href="#Committe"> Committe 
-                <span class="vertical-bar"> &nbsp; </span> </a>
+            <a href="#Committe"> Committe 
+            <span class="vertical-bar"> &nbsp; </span> </a>
 
-                <a href="#Contact"> Contact Us
-                <span class="vertical-bar"> &nbsp; </span> </a>
+            <a href="#Contact"> Contact Us
+            <span class="vertical-bar"> &nbsp; </span> </a>
 
-                <a href="#Login"> Admin Login </a>
-            </div>
+            <a href="{{ route('login') }}"> Admin Login </a>
         </div>
 
-        <div class="flex-center">
+        <div class="banner">
             <img  src="img/banner.jpg" alt="banner">
             <h6 class="banner-text"> CSE SOCIETY
             <br>
             <font size="4vh" font-weight="normal"> Metropolitan University </font> </h6>
         </div>
 
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
+        <div class="flex-center position-ref">
             <div class="content">
                 <div class="title m-b-md">
                     CSE SOCIETY
@@ -101,60 +87,49 @@
 
         <div class="block-center position-ref content">
             <div id="News">
-                <h4> TEST </h4>
+                <p class="heading"> News </p>
                 <br>
             </div>
 
             <div id="Eventes">
-                <h4> TEST </h4>
+                <p class="heading"> Events </p>
                 <br>
             </div>
 
             <div id="Gallery">
-                <h4> TEST </h4>
+                <p class="heading"> Gallery </p>
                 <br>
             </div>
 
             <div id="Committe">
-                <h4> TEST </h4>
+                <p class="heading"> Committe </p>
                 <br>
             </div>
 
             <div id="About">
-                <h4> TEST </h4>
+                <p class="heading"> About </p>
                 <br>
             </div>
 
             <div id="Contact">
-                <h4> TEST </h4>
+                <p class="heading"> Contact Us </p>
                 <br>
             </div>
         </div>
 
         <!-- script -->
         <script>
-            function openSideBar() {
-                document.getElementById("Side-bar").style.width = "200px";
-            }
-        </script>
-
-        <script>
-            function closeSideBar() {
-                document.getElementById("Side-bar").style.width = "0%";
-            }
-        </script>
-
-        <script>
+            //changing background opacity of top menu bar
             [red, green, blue] = [33, 40, 61];
-            dynBack = document.querySelector('.dynBack');
-                h = document.documentElement.clientHeight;
-                x = (h * 0.3);
-                h = (h-x) * 0.3;
+            navBar = document.getElementById("Nav-bar");
+            h = document.documentElement.clientHeight;
+            x = (h * 0.3);
+            h = x - (h * 0.11);
 
             window.addEventListener('scroll', () => {
                 a = Math.min(1.0, (window.scrollY || window.pageYOffset) / h);
                 [r, g, b, y] = [red, green, blue, a];
-                dynBack.style.background = `rgba(${r}, ${g}, ${b}, ${y})`;
+                navBar.style.background = `rgba(${r}, ${g}, ${b}, ${y})`;
             });
         </script>
     </body>

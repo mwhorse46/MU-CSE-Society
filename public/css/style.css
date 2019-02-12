@@ -11,6 +11,16 @@ html, body {
     height: 100vh;
 }
 
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
 .flex-center {
     align-items: center;
     display: flex;
@@ -23,19 +33,9 @@ html, body {
     justify-content: center;
 }
 
-.flex-center img{
+.banner img{
     width: 100vw;
     height: 30vh;
-}
-
-.position-ref {
-    position: relative;
-}
-
-.top-right {
-    position: absolute;
-    right: 10px;
-    top: 18px;
 }
 
 .content {
@@ -65,7 +65,7 @@ html, body {
 
 .closebtn {
     position: absolute;
-    top: 3px;
+    top: 2vh;
     right: 2vw;
     font-size: 6vh;
     color: #FFFFFF;
@@ -78,7 +78,7 @@ html, body {
     width: 100%;
 }
 
-.side-menu img, .nav-menu img {
+.side-menu img, .nav-bar img {
     height: 8vh;
     width: 8vh;
     border: #363c4f 3px solid;
@@ -92,19 +92,20 @@ html, body {
     font-size: 18px;
     line-height: 10vh;
     padding: 4px 6px;
+    color: #FFFFFF;
     border-top: 2px #636b6f dotted;
 }
 
-.side-menu a:hover, .nav-menu a:hover {
+.side-menu a:hover, .nav-bar a:hover {
     font-weight: bold;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
 }
 
-.side-menu a:visited, .nav-menu a:visited{
+.side-menu a:visited, .nav-bar a:visited{
     color: #FFFFFF;
 }
 
-.icon {
+.openbtn {
     display: none;
 }
 
@@ -119,13 +120,13 @@ html, body {
     z-index: 1;
 }
 
-.nav-menu .vertical-bar {
+.nav-bar .vertical-bar {
     border-right: 1px solid white;
     padding-left: 8px;
     float: none;
 }
 
-.nav-menu a {
+.nav-bar a {
     float: left;
     text-decoration: none;
     font-size: 18px;
@@ -133,18 +134,20 @@ html, body {
     padding: 0;
     padding-left: 8px;
     padding-top: 3vh;
+    color: #FFFFFF;
 }
 
 @media screen and (max-width: 900px) {
     .nav-bar {display: none;}
 
-    .icon {
+    .openbtn {
         display: block;
-        float: left;
         color: #FFFFFF;
         position: absolute;
+        text-decoration: none;
         top: 2vh;
         left: 2vw;
+        font-size: 6vh;
     }
 }
 
@@ -166,12 +169,14 @@ html, body {
     margin-bottom: 30px;
 }
 
-h4 {
+.heading {
     border-top: 1px dotted #636b6f;
     border-bottom: 1px dotted #636b6f;
     margin-left: auto;
     margin-right: auto;
     color: #363c4f;
-    width: 30%;
-    text-align: center
+    width: 150px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
 }
