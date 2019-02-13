@@ -170,13 +170,49 @@ html, body {
 }
 
 .heading {
-    border-top: 1px dotted #636b6f;
     border-bottom: 1px dotted #636b6f;
     margin-left: auto;
     margin-right: auto;
-    color: #363c4f;
+    margin-bottom: 0;
+    padding: 10px;
+    color: #313338;
     width: 150px;
     text-align: center;
     font-style: italic;
     font-weight: bold;
+}
+
+.bg-sky {
+    background: #4095C9;
+}
+
+.bg-blue {
+    background: #182b69;
+}
+
+.bg-ash {
+    background: #efefef;
+}
+
+.content {
+    margin: 0;
+    padding: 0;
+}
+
+.para {
+    margin: 0;
+    padding: 20px;
+    color: #000;
+    font-size: 18px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: justify
+}
+
+.footer {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 5px 0px;
 }
