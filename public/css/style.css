@@ -34,9 +34,9 @@ html, body {
 .banner {
     height: 30vh;
     width: 100%;
-}	
+}
 
-.banner img{
+.banner img {
     width: 100%;
     height: 30vh;
 }
@@ -104,7 +104,7 @@ html, body {
     text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
 }
 
-.side-menu a:visited, .nav-bar a:visited{
+.side-menu a:visited, .nav-bar a:visited {
     color: #FFFFFF;
 }
 
@@ -140,8 +140,9 @@ html, body {
 }
 
 @media screen and (max-width: 900px) {
-    .nav-bar {display: none;}
-
+    .nav-bar {
+        display: none;
+    }
     .openbtn {
         display: block;
         color: #FFFFFF;
@@ -157,7 +158,7 @@ html, body {
     font-size: 84px;
 }
 
-.links > a {
+.links>a {
     color: #636b6f;
     padding: 0 25px;
     font-size: 12px;
@@ -173,10 +174,11 @@ html, body {
 
 .heading {
     border-bottom: 1px dotted #636b6f;
-	margin: 0 auto;
+    margin: 0 auto;
     padding: 10px;
     color: #313338;
     width: 150px;
+    font-size: 22px;
     text-align: center;
     font-style: italic;
     font-weight: bold;
@@ -204,14 +206,76 @@ html, body {
     padding: 20px;
     color: #000;
     font-size: 18px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: justify
+}
+
+.adrs {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: justify;
+}
+
+.msg {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: justify
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 0px 30px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 700px) {
+    .column {
+        width: 100%;
+    }
+}
+
+input[type=text], input[type=email], textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+	margin-bottom: 10px;
+	resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+input[type=submit]:hover {
+    background-color: #3e9242;
 }
 
 .footer {
     color: #FFFFFF;
     font-size: 14px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
     margin: 0;
     padding: 5px 0px;
