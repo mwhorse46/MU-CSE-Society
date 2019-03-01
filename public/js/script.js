@@ -46,7 +46,7 @@ $('.glry').click(function(e){
 });
 $('.cmte').click(function(e){
     e.preventDefault();
-    var p = $('#Committe').offset();
+    var p = $('#Committee').offset();
     $('body, html').animate({ 'scrollTop': p.top - nav }, 250);
 });
 $('.cntct').click(function(e){

@@ -81,11 +81,21 @@ html, body {
     width: 100%;
 }
 
-.side-menu img, .nav-bar img {
+.menu-icon {
     height: 8vh;
     width: 8vh;
     border: #363c4f 3px solid;
     border-radius: 50%;
+}
+
+.icon {
+    text-decoration: none;
+    width: 42px;
+    height: 26px;
+    padding: 0 20px;
+    padding-top: 4px;
+    color: #FFFFFF;
+    top: 0;
 }
 
 .side-menu a {
@@ -132,11 +142,38 @@ html, body {
     float: left;
     text-decoration: none;
     font-size: 18px;
-    line-height: 5vh;
     padding: 0;
     padding-left: 8px;
     padding-top: 3vh;
     color: #FFFFFF;
+    line-height: 5vh;
+}
+
+.left-menu {
+    float: left;
+    width: 75%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.right-menu {
+    float: right;
+    width: 25%;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.blank {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    background: rgb(33, 40, 61);
+    content: "";
+    display: block;
+    height: 11vh;
 }
 
 @media screen and (max-width: 900px) {
@@ -270,6 +307,19 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #3e9242;
+}
+
+.msg-success {
+    width: 60%;
+    text-align: center;
+    font-size: 20px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    color: #000;
+    background: #67ca88;
+    border: #386e4a 2px solid;
+    border-radius: 6px;
 }
 
 .footer {
