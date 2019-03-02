@@ -88,14 +88,18 @@ html, body {
     border-radius: 50%;
 }
 
-.icon {
+.icon-inbox {
     text-decoration: none;
     width: 42px;
     height: 26px;
-    padding: 0 20px;
-    padding-top: 4px;
     color: #FFFFFF;
-    top: 0;
+}
+
+.icon-logout {
+    text-decoration: none;
+    width: 32px;
+    height: 38px;
+    color: #FFFFFF;
 }
 
 .side-menu a {
@@ -151,7 +155,8 @@ html, body {
 
 .left-menu {
     float: left;
-    width: 75%;
+    width: 80%;
+    height: 11vh;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -159,11 +164,29 @@ html, body {
 
 .right-menu {
     float: right;
-    width: 25%;
-    padding: 0;
+    width: 20%;
+    height: 11vh;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.right-menu a {
+    padding: 15px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    justify-content: center;
 }
 
 .blank {
@@ -173,7 +196,7 @@ html, body {
     background: rgb(33, 40, 61);
     content: "";
     display: block;
-    height: 11vh;
+    height: 10vh;
 }
 
 @media screen and (max-width: 900px) {
@@ -189,6 +212,82 @@ html, body {
         left: 2vw;
         font-size: 6vh;
     }
+}
+
+.nav-bar-inbox {
+    position: fixed;
+    padding-top: 0;
+    display: block;
+    width: 100vw;
+    font-family: 'Lato', sans-serif;
+    background: rgba(33, 40, 61, 1);
+    z-index: 1;
+}
+
+.left-side {
+    background: rgb(60, 89, 179);
+    float: left;
+    width: 10%;
+    color: #fff;
+    height: 55px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.left-side a {
+    text-decoration: none;
+    font-size: 2vw;
+    color: #FFFFFF;
+}
+
+.middle-side {
+    float: left;
+    width: 80%;
+    height: 55px;
+    font-size: 24px;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.right-side {
+    float: left;
+    width: 10%;
+    height: 55px;
+    padding: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.right-side a {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .title {
@@ -234,17 +333,43 @@ html, body {
 }
 
 .content {
+    width: 100%;
     margin: 0;
     padding: 0;
+    color: #000;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
 }
 
 .para {
     margin: 0;
     padding: 20px;
-    color: #000;
-    font-size: 18px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-align: justify
+}
+
+.tbl-message {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tbl-message td, .tbl-message th {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.tbl-message tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tbl-message tr:hover {
+    background-color: #ddd;
+}
+
+.tbl-message th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgb(76, 122, 175);
+    color: white;
 }
 
 .adrs {
@@ -291,8 +416,8 @@ input[type=text], input[type=email], textarea {
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 10px;
-	margin-bottom: 10px;
-	resize: vertical;
+    margin-bottom: 10px;
+    resize: vertical;
 }
 
 input[type=submit] {

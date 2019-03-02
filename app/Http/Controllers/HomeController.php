@@ -28,6 +28,6 @@ class HomeController extends Controller
 
     public function inbox()
     {
-        return view('inbox');
+        return view('layouts.master', ['title'=>"Inbox"]);
     }
 }
