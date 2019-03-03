@@ -31,6 +31,7 @@
         </div>
 
         <div class="right-side">
+            <a> {{ Auth::user()->name }} </a>
             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 <img src="{{ asset('img/logout.png') }}" class="icon-logout">

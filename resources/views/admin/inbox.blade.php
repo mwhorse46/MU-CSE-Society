@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.master')
 
 @section('page-title')
     {{ $title }}

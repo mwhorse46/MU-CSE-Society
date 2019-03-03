@@ -26,7 +26,7 @@
 
         <div class="side-menu">
             <a href="#Home" style="border:0; margin-top: 70px;">
-                <img src="img/logo.png" alt="logo" class="menu-icon"> </a>
+                <img src="{{ asset('img/logo.png') }}" alt="logo" class="menu-icon"> </a>
             <a href="#About"> About Us </a>
             <a href="#News"> News </a>
             <a href="#Events"> Events </a>
@@ -39,7 +39,7 @@
     <a href="javascript:void(0);" class="openbtn" onclick="openSideBar()"> &rAarr; </a>
 
     <div class="nav-bar" id="Nav-bar">
-        <a href="#Home" style="padding-top:1vh"> <img src="img/logo.png" alt="logo" class="menu-icon"> </a>
+        <a href="#Home" style="padding-top:1vh"> <img src="{{ asset('img/logo.png') }}" alt="logo" class="menu-icon"> </a>
 
         <a href="#About" class="abt"> About Us
             <span class="vertical-bar"> &nbsp; </span> </a>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="banner" id="Home">
-        <img src="img/banner.jpg" alt="banner">
+        <img src="{{ asset('img/banner.jpg') }}" alt="banner">
         <h6 class="banner-text"> CSE SOCIETY
             <br>
             <font size="4vh" font-weight="normal"> Metropolitan University </font>

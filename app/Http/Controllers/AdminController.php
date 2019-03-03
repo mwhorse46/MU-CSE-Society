@@ -20,37 +20,37 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.adminHome');
     }
 
     public function inbox()
     {
         $title = "Inbox";
         $messages = Message::orderBy('created_at', 'DESC')->get();
-        return view('inbox', ['title'=>$title, 'messages'=>$messages]);
+        return view('admin.inbox', ['title'=>$title, 'messages'=>$messages]);
     }
 
     public function news()
     {
         $title = "News";
-        return view('news', ['title'=>$title]);
+        return view('admin.news', ['title'=>$title]);
     }
 
     public function events()
     {
         $title = "Events";
-        return view('events', ['title'=>$title]);
+        return view('admin.events', ['title'=>$title]);
     }
 
     public function gallery()
     {
         $title = "Gallery";
-        return view('gallery', ['title'=>$title]);
+        return view('admin.gallery', ['title'=>$title]);
     }
 
     public function committee()
     {
         $title = "Committee";
-        return view('committee', ['title'=>$title]);
+        return view('admin.committee', ['title'=>$title]);
     }
 }

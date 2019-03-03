@@ -155,7 +155,7 @@ html, body {
 
 .left-menu {
     float: left;
-    width: 80%;
+    width: 60%;
     height: 11vh;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -164,11 +164,13 @@ html, body {
 
 .right-menu {
     float: right;
-    width: 20%;
+    width: 40%;
     height: 11vh;
+
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -250,7 +252,7 @@ html, body {
 
 .middle-side {
     float: left;
-    width: 80%;
+    width: 60%;
     height: 55px;
     font-size: 24px;
     padding: 10px 20px;
@@ -262,7 +264,7 @@ html, body {
 
 .right-side {
     float: left;
-    width: 10%;
+    width: 30%;
     height: 55px;
     padding: 0;
     display: -webkit-flex;
@@ -278,6 +280,10 @@ html, body {
 }
 
 .right-side a {
+    padding-right: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFFFFF;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -363,6 +369,8 @@ html, body {
 
 .tbl-message tr:hover {
     background-color: #ddd;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
 }
 
 .tbl-message th {

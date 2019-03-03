@@ -26,7 +26,7 @@
 
         <div class="side-menu">
             <a href="#Home" style="border:0; margin-top: 70px;">
-                <img src="img/logo.png" alt="logo" class="menu-icon"> </a>
+                <img src="{{ asset('img/logo.png') }}" alt="logo" class="menu-icon"> </a>
             <a href="#News"> News </a>
             <a href="#Events"> Events </a>
             <a href="#Gallery"> Gallery </a>
@@ -45,7 +45,7 @@
 
     <div class="nav-bar" style="background:rgb(33, 40, 61);">
         <div class="left-menu">
-            <a href="#Home" style="padding-top:1vh"> <img src="img/logo.png" alt="logo" class="menu-icon"> </a>
+            <a href="#Home" style="padding-top:1vh"> <img src="{{ asset('img/logo.png') }}" alt="logo" class="menu-icon"> </a>
 
             <a href="#News" class="nws"> News
                 <span class="vertical-bar"> &nbsp; </span> </a>
@@ -60,11 +60,12 @@
         </div>
 
         <div class="right-menu">
-            <a href="{{ URL::to('/admin/inbox') }}"> <img src="img/inbox.png" class="icon-inbox"> </a>
+            <a> {{ Auth::user()->name }} </a>
+            <a href="{{ URL::to('/admin/inbox') }}"> <img src="{{ asset('img/inbox.png') }}" class="icon-inbox"> </a>
 
             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-                <img src="img/logout.png" class="icon-logout">
+                <img src="{{ asset('img/logout.png') }}" class="icon-logout">
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
