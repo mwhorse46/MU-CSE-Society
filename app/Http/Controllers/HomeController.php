@@ -3,19 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Message;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -23,11 +15,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        if(Auth::guest())
+            return view('home.home');
+        else
+            return view('admin.adminHome');
     }
 
-    public function inbox()
-    {
-        return view('layouts.master', ['title'=>"Inbox"]);
+    public function insertMessage(Request $request) {
+        Message::create($request->only('name', 'email', 'message'));
+        return redirect('/')->with('status', 'Message Sent To Admin.');
     }
 }

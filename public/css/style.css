@@ -166,11 +166,9 @@ html, body {
     float: right;
     width: 40%;
     height: 11vh;
-
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -216,7 +214,7 @@ html, body {
     }
 }
 
-.nav-bar-inbox {
+.nav-bar-master {
     position: fixed;
     padding-top: 0;
     display: block;
@@ -252,7 +250,7 @@ html, body {
 
 .middle-side {
     float: left;
-    width: 60%;
+    width: 45%;
     height: 55px;
     font-size: 24px;
     padding: 10px 20px;
@@ -263,17 +261,17 @@ html, body {
 }
 
 .right-side {
-    float: left;
-    width: 30%;
+    float: right;
+    width: 45%;
     height: 55px;
-    padding: 0;
+    padding: 0 20px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     -webkit-align-content: center;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-end;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -346,11 +344,17 @@ html, body {
     font-size: 18px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
-.para {
+.sub-content {
     margin: 0;
     padding: 20px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .tbl-message {
@@ -417,7 +421,7 @@ html, body {
     }
 }
 
-input[type=text], input[type=email], textarea {
+input[type=text], input[type=email], input[type=file], textarea {
     width: 100%;
     padding: 6px;
     border: 1px solid #ccc;
@@ -428,7 +432,7 @@ input[type=text], input[type=email], textarea {
     resize: vertical;
 }
 
-input[type=submit] {
+.btnMsg {
     background-color: #4CAF50;
     color: white;
     padding: 6px 10px;
@@ -437,9 +441,62 @@ input[type=submit] {
     cursor: pointer;
     margin-bottom: 10px;
 }
-
-input[type=submit]:hover {
+.btnMsg:hover {
     background-color: #3e9242;
+}
+
+.txtNews {
+    height: 150px;
+}
+
+.btnNewsAdd {
+    background-color: rgb(54, 146, 199);
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 15px;
+    font-size: 20px;
+}
+.btnNewsAdd:hover {
+    background-color: rgb(34, 106, 148);
+}
+
+.btnNewsCncl {
+    background-color: rgb(211, 65, 65);
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 15px;
+    font-size: 20px;
+}
+.btnNewsCncl:hover {
+    background-color: rgb(177, 40, 40);
+}
+
+.btnCnclLnk{
+    color: #fff;
+    text-decoration: none;
+}
+.btnCnclLnk:hover {
+    color: #fff;
+}
+.btnCnclLnk:visited {
+    color:#fff;
+}
+
+.td-left {
+    font-size: 18px;
+    text-align:left;
+    padding: 0;
+    width: 15%;
 }
 
 .msg-success {

@@ -129,25 +129,27 @@
                 <hr>
                 <form action="/sendmsg" method="POST">
                     {{ csrf_field() }}
-                    <table style=" width: 100%">
-                        <tr>
-                            <td style="font-size: 18px;"> Name* </td>
-                            <td><input type="text" name="name" required placeholder="Your name" maxlength="100" style="font-size: 16px;"></td>
-                        </tr>
+                    <table style="width: 100%">
+                        <tbody style="padding:0;">
+                            <tr>
+                                <td class="td-left"> Name* </td>
+                                <td><input type="text" name="name" required placeholder="Your name" maxlength="100" style="font-size: 16px;"></td>
+                            </tr>
 
-                        <tr>
-                            <td style="font-size: 18px;"> Email* </td>
-                            <td><input type="email" name="email" required placeholder="email@example.com" style="font-size:16px;"></td>
-                        </tr>
+                            <tr>
+                                <td class="td-left"> Email* </td>
+                                <td><input type="email" name="email" required placeholder="email@example.com" style="font-size:16px;"></td>
+                            </tr>
 
-                        <tr>
-                            <td for="message" style="font-size: 18px;"> Message* </td>
-                            <td><textarea id="comment" name="message" required placeholder="Write your message.." maxlength="500" style="font-size: 16px;"></textarea></td>
-                        </tr>
+                            <tr>
+                                <td class="td-left"> Message* </td>
+                                <td><textarea id="comment" name="message" required placeholder="Write your message.." maxlength="500" style="font-size: 16px;"></textarea></td>
+                            </tr>
 
-                        <tr>
-                            <td><input type="submit" name="submit" value="Submit"></td>
-                        </tr>
+                            <tr>
+                                <td class="td-left"><input class="btnMsg" type="submit" name="submit" value="Submit"></td>
+                            </tr>                            
+                        </tbody>
                     </table>
                 </form>
                 @if (session('status'))

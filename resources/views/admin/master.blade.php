@@ -11,6 +11,9 @@
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
+    <!-- style datepicker -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('jquery-ui/jquery-ui.min.css') }}">
+
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js "></script>
 
@@ -21,7 +24,7 @@
 </head>
 
 <body>
-    <div class="nav-bar-inbox">
+    <div class="nav-bar-master">
         <div class="left-side">
             <a href="{{ URL::previous() }}"> &lArr; Back </a>
         </div>
@@ -42,14 +45,26 @@
         </div>
     </div>
 
-    <div>
-        @yield('content')
-    </div>
+    @yield('content')
 
 
     <!-- script -->
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- script datepicker -->
+    <script type="text/javascript" src="{{ asset('jquery-ui/external/jquery/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('jquery-ui/jquery-ui.min.js') }}"></script>
+    <script>
+        //$("#date").datepicker();
+        $('#date').datepicker({
+            dateFormat: "dd MM, yy",
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true
+        });
+    </script>
+    <!-- end script datepickr -->
 </body>
 
 </html> 

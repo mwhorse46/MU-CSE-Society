@@ -11,14 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home.home');
-});
-Route::get('/home', function () {
-    return view('home.home');
-});
-
-Route::POST('/sendmsg','MessageController@insert');
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+Route::POST('/sendmsg','HomeController@insertMessage');
 
 Auth::routes();
 
@@ -29,3 +24,5 @@ Route::get('/admin/inbox', 'AdminController@inbox')->name('inbox');
 Route::get('/admin/events', 'AdminController@events')->name('events');
 Route::get('/admin/gallery', 'AdminController@gallery')->name('gallery');
 Route::get('/admin/committee', 'AdminController@committee')->name('committee');
+
+Route::get('/admin/addnews','AdminController@addNews')->name('addnews');
