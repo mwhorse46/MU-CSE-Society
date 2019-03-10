@@ -10,39 +10,79 @@
 
 @section('content')
 <div class="content" style="position:absolute; top:55px">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul style="text-align: left">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <h3>Add New News</h3>
     <div class="sub-content">
-        <form action="" method="POST">
+        <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <table style="padding:0 30px; width: 100%">
                 <tbody>
+                    @if(!Request::has('id'))
                     <tr>
                         <td class="td-left"> Date* </td>
-                        <td> <input type="text" id="date" required placeholder="News Date" style="font-size:16px;"> </td>
+                        <td> <input type="text" id="date" name="date" required placeholder="News Date (Format: dd/mm/yyyy)"> </td>
                     </tr>
-
                     <tr>
                         <td class="td-left"> Title* </td>
-                        <td><input type="text" name="title" required placeholder="News Title" style="font-size:16px;"></td>
+                        <td><input type="text" name="title" required placeholder="News Title"></td>
                     </tr>
-
                     <tr>
                         <td class="td-left"> Image </td>
                         <td> <input type="file" id="image" name="image" /> </td>
                     </tr>
-
                     <tr>
                         <td class="td-left"> News* </td>
-                        <td><textarea class="txtNews" name="news" required placeholder="Write your News.." maxlength="5000" style="font-size: 16px;"></textarea></td>
+                        <td>
+                            <textarea class="txtNews" name="news" required placeholder="Write your News.." maxlength="5000"></textarea>
+                        </td>
                     </tr>
-
                     <tr>
                         <td></td>
                         <td style="text-align:right">
-                            <input class="btnNewsAdd" type="submit" name="submit" value="Add News">
+                            <input class="btnNewsAdd" type="submit" name="submit" value="{{ $title }}">
                             <a href="{{ route('news') }}" class="btnCnclLnk"><input class="btnNewsCncl" type="button" value="Cancel"></a>
                         </td>
                     </tr>
+                    @else
+                    <tr>
+                        <input type="hidden" name="id" value="{{ $news->id }}">
+                    </tr>
+                    <tr>
+                        <td class="td-left"> Date* </td>
+                        <td> <input type="text" id="date" name="date" required placeholder="News Date (Format: dd/mm/yyyy)" value="{{ \DateTime::createFromFormat('Y-m-d', $news->date)->format('d/m/Y') }}"> </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left"> Title* </td>
+                        <td><input type="text" name="title" required placeholder="News Title" value="{{ $news->title }}"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-left"> Image </td>
+                        <td> <input type="file" id="image" name="image" /> </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left"> News* </td>
+                        <td>
+                            <textarea class="txtNews" name="news" required placeholder="Write your News.." maxlength="5000">{{ $news->news }}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align:right">
+                            <input class="btnNewsAdd" type="submit" name="submit" value="{{ $title }}">
+                            <a href="{{ route('news') }}" class="btnCnclLnk"><input class="btnNewsCncl" type="button" value="Cancel"></a>
+                        </td>
+                    </tr>
+                    @endif
                 </tbody>
             </table>
         </form>

@@ -10,9 +10,13 @@
 
 @section('content')
 <div class="content" style="position:absolute; top:55px">
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
+    <a href="{{ route('addnews') }}" class="btnNewNews"> <img src="{{ asset('img/plus.png') }}" alt="" class="icon-plus"> Add News </a>
     <h3>All News</h3>
-
-    <p>Date: <input type="text" id="date"></p>
 
     <div class="sub-content">
         <table class="tbl-message" id="Tbl-Message">
@@ -20,20 +24,27 @@
                 <tr>
                     <th>Date</th>
                     <th>Title</th>
-                    <th>News</th>
                     <th>Image</th>
-                    <th> <a href="{{ route('addnews') }}"> Add </a> </th>
+                    <th>News</th>
+                    <th>Edit/Delete</th>
                 </tr>
             </thead>
 
             <tbody>
                 @foreach($newses as $news)
                 <tr>
-                    <td>{{ $news->date }}</td>
-                    <td>{{ $news->title }}</td>
-                    <td>{{ $news->news }}</td>
-                    <td>{{ $news->image }}</td>
-                    <td>Edit Delete</td>
+                    <td width="8%">{{ $news->date }}</td>
+                    <td width="15%" style="word-wrap:break-word">{{ $news->title }}</td>
+                    <td width="15%">
+                        @if($news->image !== null)
+                        <img src="{{ asset( 'images/'.$news->image ) }}" alt="{{ $news->image }}" width="100%" height="auto">
+                        @endif
+                    </td>
+                    <td width="52%" style="word-wrap:break-word">{{ $news->news }}</td>
+                    <td width="10%">
+                        <a href="{{ asset('admin/editNews?id='.$news->id) }}" class="btnEdit"> Edit </a>
+                        <a href="{{ asset('admin/deleteNews?id='.$news->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete"> Delete </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

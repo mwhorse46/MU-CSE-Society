@@ -133,17 +133,17 @@
                         <tbody style="padding:0;">
                             <tr>
                                 <td class="td-left"> Name* </td>
-                                <td><input type="text" name="name" required placeholder="Your name" maxlength="100" style="font-size: 16px;"></td>
+                                <td><input type="text" name="name" required placeholder="Your name" maxlength="100"></td>
                             </tr>
 
                             <tr>
                                 <td class="td-left"> Email* </td>
-                                <td><input type="email" name="email" required placeholder="email@example.com" style="font-size:16px;"></td>
+                                <td><input type="email" name="email" required placeholder="email@example.com"></td>
                             </tr>
 
                             <tr>
                                 <td class="td-left"> Message* </td>
-                                <td><textarea id="comment" name="message" required placeholder="Write your message.." maxlength="500" style="font-size: 16px;"></textarea></td>
+                                <td><textarea id="comment" name="message" required placeholder="Write your message.." maxlength="500"></textarea></td>
                             </tr>
 
                             <tr>
@@ -153,7 +153,7 @@
                     </table>
                 </form>
                 @if (session('status'))
-                <div class="msg-success">
+                <div class="alert alert-success">
                     {{ session('status') }}
                 </div>
                 @endif

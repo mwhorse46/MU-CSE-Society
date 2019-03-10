@@ -56,12 +56,12 @@
     <script type="text/javascript" src="{{ asset('jquery-ui/external/jquery/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('jquery-ui/jquery-ui.min.js') }}"></script>
     <script>
-        //$("#date").datepicker();
         $('#date').datepicker({
-            dateFormat: "dd MM, yy",
+            dateFormat: "dd/mm/yy",
             changeMonth: true,
             changeYear: true,
-            showButtonPanel: true
+            showButtonPanel: true,
+            autoclose: true
         });
     </script>
     <!-- end script datepickr -->
