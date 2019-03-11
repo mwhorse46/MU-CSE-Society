@@ -38,7 +38,7 @@
                     <td style="word-wrap:break-word">{{ $message->created_at }}</td>
                     <td style="word-wrap:break-word">{{ $message->message }}</td>
                     <td>
-                        <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete">
+                        <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete1">
                             <img src="{{ asset('img/delete1.png') }}" alt="">
                         </a>
                     </td>

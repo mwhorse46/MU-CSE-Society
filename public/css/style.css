@@ -516,17 +516,9 @@ input[type=text], input[type=email], input[type=file], textarea {
     color:#fff;
 }
 
-.btnDelete {
+.btnDelete1 {
     text-decoration: none;
     font-size: 32px;
-    color: red;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-align-content: center;
-    align-content: center;
-    justify-content: center;
 }
 
 .td-left {
