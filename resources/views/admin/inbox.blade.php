@@ -1,17 +1,24 @@
 @extends('admin.master')
 
 @section('page-title')
-    {{ $title }}
+{{ $title }}
 @endsection
 
 @section('dashboard-name')
-    {{ $title }}
+{{ $title }}
 @endsection
 
 @section('content')
-<div class="content">
-    <div class="sub-content" style="position:absolute; top:55px">
-        <h3>All Messages</h3>
+<div class="content" style="position:absolute; top:55px">
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
+
+    <h3>All Messages</h3>
+
+    <div class="sub-content">
         <table class="tbl-message" id="Tbl-Message">
             <thead>
                 <tr>
@@ -19,20 +26,26 @@
                     <th>Email</th>
                     <th>Received At</th>
                     <th>Message</th>
+                    <th></th>
                 </tr>
             </thead>
 
             <tbody>
                 @foreach($messages as $message)
-                    <tr>
-                        <td style="word-wrap:break-word">{{ $message->name }}</td>
-                        <td style="word-wrap:break-word">{{ $message->email }}</td>
-                        <td style="word-wrap:break-word">{{ $message->created_at }}</td>
-                        <td style="word-wrap:break-word">{{ $message->message }}</td>
-                    </tr>
+                <tr>
+                    <td style="word-wrap:break-word">{{ $message->name }}</td>
+                    <td style="word-wrap:break-word">{{ $message->email }}</td>
+                    <td style="word-wrap:break-word">{{ $message->created_at }}</td>
+                    <td style="word-wrap:break-word">{{ $message->message }}</td>
+                    <td>
+                        <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete">
+                            <img src="{{ asset('img/delete1.png') }}" alt="">
+                        </a>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 </div>
-@endsection
+@endsection 

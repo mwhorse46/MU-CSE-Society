@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/home', 'AdminController@index');
 Route::get('/admin/inbox', 'AdminController@inbox')->name('inbox');
+Route::get('admin/deleteMessage','AdminController@deleteMsg')->name('deletemsg');
 Route::get('/admin/events', 'AdminController@events')->name('events');
 Route::get('/admin/gallery', 'AdminController@gallery')->name('gallery');
 Route::get('/admin/committee', 'AdminController@committee')->name('committee');

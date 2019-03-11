@@ -47,4 +47,12 @@ class AdminController extends Controller
         $title = "Committee";
         return view('admin.committee', ['title' => $title]);
     }
+
+    public function deleteMsg(Request $request)
+    {
+        $id = $request->get('id');
+        $message = Message::find($id);
+        $message->delete();
+        return redirect('/admin/inbox')->with('status', 'Message Deleted Successfully.');
+    }    
 }

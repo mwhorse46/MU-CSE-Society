@@ -21,7 +21,7 @@
     </div>
     @endif
 
-    <h3>Add New News</h3>
+    <h3>{{ $title }}</h3>
     <div class="sub-content">
         <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
