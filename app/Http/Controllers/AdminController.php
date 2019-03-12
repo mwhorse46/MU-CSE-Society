@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use App\News;
 
 class AdminController extends Controller
 {
@@ -20,7 +21,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.adminHome');
+        $news = News::orderBy('date', 'DESC')->get();
+        return view('admin.adminHome', ['news' => $news]);
     }
 
     public function inbox()
@@ -54,5 +56,5 @@ class AdminController extends Controller
         $message = Message::find($id);
         $message->delete();
         return redirect('/admin/inbox')->with('status', 'Message Deleted Successfully.');
-    }    
+    }
 }

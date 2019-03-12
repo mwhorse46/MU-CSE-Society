@@ -19,12 +19,6 @@ html, body {
     top: 18px;
 }
 
-.flex-center {
-    align-items: center;
-    display: none;
-    justify-content: center;
-}
-
 .block-center {
     align-items: center;
     display: block;
@@ -41,10 +35,6 @@ html, body {
     height: 30vh;
 }
 
-.content {
-    text-align: center;
-}
-
 .banner-text {
     left: 3vw;
     top: 1vh;
@@ -53,35 +43,8 @@ html, body {
     color: #FFFFFF;
 }
 
-.side-bar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background: #363c4f;
-    overflow-x: hidden;
-    font-family: 'Lato', sans-serif;
-    transition: 0.5s;
-}
-
-.closebtn {
-    position: absolute;
-    top: 2vh;
-    right: 2vw;
-    font-size: 6vh;
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-.side-menu {
-    text-align: center;
-    display: block;
-    width: 100%;
-}
-
-.menu-icon {
+/* icons & buttons */
+.icon-logo {
     height: 8vh;
     width: 8vh;
     border: #363c4f 3px solid;
@@ -109,6 +72,124 @@ html, body {
     color: #FFFFFF;
 }
 
+.btnClose {
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    font-size: 6vh;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.btnOpen {
+    display: none;
+}
+
+.btnMsg {
+    cursor: pointer;
+    color: white;
+    background-color: #4CAF50;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.btnMsg:hover {
+    background-color: #3e9242;
+}
+
+.btnControl {
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(54, 146, 199);
+    padding: 8px 50px;
+    margin: 0px;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.btnAddItem {
+    cursor: pointer;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(54, 146, 199);
+    padding: 8px 50px;
+    margin: 0px;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.btnCreate {
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(54, 146, 199);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 150px;
+    display: inline-block;
+}
+
+.btnCreate:hover {
+    background-color: rgb(34, 106, 148);
+}
+
+.btnDelete {
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(211, 65, 65);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 150px;
+    display: inline-block;
+}
+
+.btnDelete:hover {
+    background-color: rgb(177, 40, 40);
+}
+
+.btnDelete-noBackground {
+    text-decoration: none;
+    font-size: 32px;
+}
+/* end icons & buttons */
+
+.side-bar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #363c4f;
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+    transition: 0.5s;
+}
+
+.side-menu {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
 .side-menu a {
     display: block;
     float: none;
@@ -127,10 +208,6 @@ html, body {
 
 .side-menu a:visited, .nav-bar a:visited {
     color: #FFFFFF;
-}
-
-.openbtn {
-    display: none;
 }
 
 .nav-bar {
@@ -160,6 +237,22 @@ html, body {
     line-height: 5vh;
 }
 
+@media screen and (max-width: 900px) {
+    .nav-bar {
+        display: none;
+    }
+    .btnOpen {
+        display: block;
+        color: #FFFFFF;
+        position: absolute;
+        text-decoration: none;
+        top: 1.3vh;
+        left: 2vw;
+        font-size: 6vh;
+    }
+}
+
+/* adminHome nav-bar */
 .left-menu {
     float: left;
     width: 60%;
@@ -195,6 +288,7 @@ html, body {
     align-content: center;
     justify-content: center;
 }
+/* end adminHome nav-bar */
 
 .blank {
     top: 0;
@@ -206,29 +300,18 @@ html, body {
     height: 10vh;
 }
 
-@media screen and (max-width: 900px) {
-    .nav-bar {
-        display: none;
-    }
-    .openbtn {
-        display: block;
-        color: #FFFFFF;
-        position: absolute;
-        text-decoration: none;
-        top: 2vh;
-        left: 2vw;
-        font-size: 6vh;
-    }
-}
-
+/* master nav bar*/
 .nav-bar-master {
     position: fixed;
     padding-top: 0;
     display: block;
-    width: 100vw;
+    width: 100%;
     font-family: 'Lato', sans-serif;
     background: rgba(33, 40, 61, 1);
     z-index: 1;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .left-side {
@@ -300,49 +383,9 @@ html, body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+/* end master nav bar*/
 
-.title {
-    font-size: 84px;
-}
-
-.links>a {
-    color: #636b6f;
-    padding: 0 25px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.m-b-md {
-    margin-bottom: 30px;
-}
-
-.heading {
-    border-bottom: 1px dotted #636b6f;
-    margin: 0 auto;
-    padding: 10px;
-    color: #313338;
-    width: 150px;
-    font-size: 22px;
-    text-align: center;
-    font-style: italic;
-    font-weight: bold;
-}
-
-.bg-sky {
-    background: #4095C9;
-}
-
-.bg-blue {
-    background: #182b69;
-}
-
-.bg-ash {
-    background: #efefef;
-}
-
+/* main sections */
 .content {
     width: 100%;
     margin: 0;
@@ -364,26 +407,123 @@ html, body {
     -webkit-box-sizing: border-box;
 }
 
-.tbl-message {
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: fixed;
+.heading {
+    border-bottom: 1px dotted #636b6f;
+    margin: 0 auto;
+    padding: 10px;
+    color: #313338;
+    width: 150px;
+    font-size: 22px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
 }
 
-.tbl-message td, .tbl-message th {
+.heading-control {
+    margin: 0 auto;
+    padding: 10px;
+    color: #313338;
+    width: 40%;
+    font-size: 22px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.row-odd-news {
+    /*background-color: rgb(253, 142, 68);*/
+    text-align: justify;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.row-even-news {
+    /*background-color: rgb(238, 153, 96);*/
+    background-color: rgb(235, 231, 229);
+    text-align: justify;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.row-even-news::after, .row-odd-news::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row-even-news h2, .row-even-news h5, .row-odd-news h2, .row-odd-news h5 {
+    margin: 0;
+}
+
+.news-image {
+    float: left;
+    width: 40%;
+    padding: 20px;
+    margin: auto auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.news-news {
+    float: left;
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.news-news-full {
+    float: left;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+@media screen and (max-width: 800px) {
+    .news-image, .news-news {
+        width: 100%;
+    }
+}
+
+.bg-sky {
+    background: #4095C9;
+}
+
+.bg-blue {
+    background: #182b69;
+}
+
+.bg-ash {
+    background: #efefef;
+}
+
+/* data table */
+.tbl-content {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tbl-content td, .tbl-content th {
     border: 1px solid #ddd;
     padding: 5px;
 }
 
-.tbl-message tr:nth-child(even) {
+.tbl-content tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.tbl-message tr:hover {
+.tbl-content tr:hover {
     background-color: #ddd;
 }
 
-.tbl-message th {
+.tbl-content th {
     padding-top: 12px;
     padding-bottom: 12px;
     background-color: rgb(76, 122, 175);
@@ -406,7 +546,13 @@ html, body {
     text-align: justify
 }
 
-.column {
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column-contact {
     float: left;
     width: 50%;
     padding: 0px 30px;
@@ -415,18 +561,15 @@ html, body {
     -webkit-box-sizing: border-box;
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 @media screen and (max-width: 700px) {
-    .column {
+    .column-contact {
         width: 100%;
     }
 }
+/* end data table */
+/* end main sections */
 
+/* input form */
 input[type=text], input[type=email], input[type=file], textarea {
     width: 100%;
     padding: 6px;
@@ -436,98 +579,22 @@ input[type=text], input[type=email], input[type=file], textarea {
     margin-top: 10px;
     margin-bottom: 10px;
     resize: vertical;
-    font-size:16px;
+    font-size: 16px;
 }
 
-.btnMsg {
-    background-color: #4CAF50;
-    color: white;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-.btnMsg:hover {
-    background-color: #3e9242;
-}
-
-.txtNews {
+.txtAreaNews {
     height: 150px;
 }
-
-.btnNewNews{
-    cursor: pointer;
-    font-size: 22px;
-    text-decoration: none;
-    background-color: rgb(54, 146, 199);
-    color: white;
-    padding: 8px 50px;
-    margin: 0px;
-    border: none;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.btnNewsAdd, .btnEdit {
-    background-color: rgb(54, 146, 199);
-    color: white;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    font-size: 20px;
-    text-decoration: none;
-    display: inline-block;
-    width: 150px;
-}
-.btnNewsAdd:hover, .btnEdit:hover {
-    background-color: rgb(34, 106, 148);
-}
-
-.btnNewsCncl, .btnDelete {
-    background-color: rgb(211, 65, 65);
-    color: white;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    font-size: 20px;
-    text-decoration: none;
-    display: inline-block;
-    width: 150px;
-}
-.btnNewsCncl:hover, .btnDelete:hover {
-    background-color: rgb(177, 40, 40);
-}
-
-.btnCnclLnk{
-    color: #fff;
-    text-decoration: none;
-}
-.btnCnclLnk:hover {
-    color: #fff;
-}
-.btnCnclLnk:visited {
-    color:#fff;
-}
-
-.btnDelete1 {
-    text-decoration: none;
-    font-size: 32px;
-}
+/* end input form */
 
 .td-left {
     font-size: 18px;
-    text-align:left;
+    text-align: left;
     padding: 0;
     width: 15%;
 }
 
+/* alert */
 .alert {
     width: 60%;
     text-align: center;
@@ -549,6 +616,7 @@ input[type=text], input[type=email], input[type=file], textarea {
     background-color: #f2dede;
     border: #d4b2b8 1px solid;
 }
+/* end alert */
 
 .footer {
     color: #FFFFFF;

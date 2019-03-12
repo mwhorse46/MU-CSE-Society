@@ -19,7 +19,7 @@
     <h3>All Messages</h3>
 
     <div class="sub-content">
-        <table class="tbl-message" id="Tbl-Message">
+        <table class="tbl-content" id="Tbl-Message">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -35,10 +35,10 @@
                 <tr>
                     <td style="word-wrap:break-word">{{ $message->name }}</td>
                     <td style="word-wrap:break-word">{{ $message->email }}</td>
-                    <td style="word-wrap:break-word">{{ $message->created_at }}</td>
+                    <td style="word-wrap:break-word" width="17%">{{ $message->created_at }}</td>
                     <td style="word-wrap:break-word">{{ $message->message }}</td>
                     <td>
-                        <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete1">
+                        <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete-noBackground">
                             <img src="{{ asset('img/delete1.png') }}" alt="">
                         </a>
                     </td>

@@ -43,14 +43,14 @@
                     <tr>
                         <td class="td-left"> News* </td>
                         <td>
-                            <textarea class="txtNews" name="news" required placeholder="Write your News.." maxlength="5000"></textarea>
+                            <textarea class="txtAreaNews" name="news" required placeholder="Write your News.." maxlength="5000"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td style="text-align:right">
-                            <input class="btnNewsAdd" type="submit" name="submit" value="{{ $title }}">
-                            <a href="{{ route('news') }}" class="btnCnclLnk"><input class="btnNewsCncl" type="button" value="Cancel"></a>
+                            <input class="btnCreate" type="submit" name="submit" value="{{ $title }}">
+                            <a href="{{ route('news') }}" class="btnDelete">Cancel</a>
                         </td>
                     </tr>
                     @else
@@ -72,14 +72,14 @@
                     <tr>
                         <td class="td-left"> News* </td>
                         <td>
-                            <textarea class="txtNews" name="news" required placeholder="Write your News.." maxlength="5000">{{ $news->news }}</textarea>
+                            <textarea class="txtAreaNews" name="news" required placeholder="Write your News.." maxlength="5000">{{ $news->news }}</textarea>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td style="text-align:right">
-                            <input class="btnNewsAdd" type="submit" name="submit" value="{{ $title }}">
-                            <a href="{{ route('news') }}" class="btnCnclLnk"><input class="btnNewsCncl" type="button" value="Cancel"></a>
+                            <input class="btnCreate" type="submit" name="submit" value="{{ $title }}">
+                            <a href="{{ route('news') }}" class="btnDelete">Cancel</a>
                         </td>
                     </tr>
                     @endif

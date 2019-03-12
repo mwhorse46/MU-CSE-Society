@@ -22,11 +22,11 @@
 
 <body>
     <div class="side-bar" id="Side-bar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&lAarr;</a>
+        <a href="javascript:void(0)" class="btnClose" onclick="closeSideBar()">&lAarr;</a>
 
         <div class="side-menu">
             <a href="#Home" style="border:0; margin-top: 70px;">
-                <img src="{{ asset('img/logo.png') }}" alt="logo" class="menu-icon"> </a>
+                <img src="{{ asset('img/logo.png') }}" alt="logo" class="icon-logo"> </a>
             <a href="#About"> About Us </a>
             <a href="#News"> News </a>
             <a href="#Events"> Events </a>
@@ -36,10 +36,10 @@
             <a href="{{ route('login') }}"> Admin Login </a>
         </div>
     </div>
-    <a href="javascript:void(0);" class="openbtn" onclick="openSideBar()"> &rAarr; </a>
+    <a href="javascript:void(0);" class="btnOpen" onclick="openSideBar()"> &rAarr; </a>
 
     <div class="nav-bar" id="Nav-bar">
-        <a href="#Home" style="padding-top:1vh"> <img src="{{ asset('img/logo.png') }}" alt="logo" class="menu-icon"> </a>
+        <a href="#Home" style="padding-top:1vh"> <img src="{{ asset('img/logo.png') }}" alt="logo" class="icon-logo"> </a>
 
         <a href="#About" class="abt"> About Us
             <span class="vertical-bar"> &nbsp; </span> </a>
@@ -73,10 +73,60 @@
     <div class="block-center position-ref content">
         <div id="News">
             <p class="heading"> News </p>
-
-            <p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec venenatis nisi. Vivamus dolor libero, maximus eget egestas in, feugiat at odio. In vehicula lorem ut nisl laoreet, vitae facilisis libero dictum. Ut id eros nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam arcu sem, viverra eget est a, faucibus pulvinar massa. Integer sagittis finibus nisl, ut tempor tellus. Quisque vehicula justo convallis, pulvinar erat vitae, eleifend quam. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id egestas mauris. Vivamus a lorem blandit, congue risus egestas, eleifend justo. Nam ullamcorper tortor eros.
-
-                Proin elementum vestibulum felis, quis vehicula nibh egestas non. Nullam elementum nisl nunc, nec ultrices massa tincidunt ac. Donec at libero at ipsum faucibus tincidunt. Vestibulum non consequat orci, malesuada vehicula magna. Proin eget nulla volutpat erat condimentum tempor eget id libero. Ut et pulvinar augue. Phasellus mollis libero at nulla blandit, non tincidunt tortor ultricies. Curabitur risus sem, ornare sit amet augue vel, bibendum lobortis nulla. Proin sit amet urna massa. Nullam vel mi at nisi convallis feugiat. Donec a mollis massa.</p>
+            <?php
+            $cnt = 1;
+            foreach ($news as $news) {
+                $date = \DateTime::createFromFormat('Y-m-d', $news->date)->format('d M, Y');
+                if ($cnt % 2 === 1) {
+                    echo "<div class=\"row-odd-news\">";
+                    if ($news->image !== null) {
+                        echo "
+                            <div class=\"news-image\">
+                                <img src=\"" . asset('images/' . $news->image) . "\" alt=\"" . $news->image . "\" width=\"100%\" height=\"auto\">
+                            </div>
+                            <div class=\"news-news\">
+                                <h2> " . $news->title . " </h2>
+                                <h5> " . $date . " </h5>
+                                <p> " . $news->news . " </p>
+                            </div>
+                        ";
+                    } else {
+                        echo "
+                            <div class=\"news-news-full\">
+                                <h2> " . $news->title . " </h2>
+                                <h5> " . $date . " </h5>
+                                <p> " . $news->news . " </p>
+                            </div>
+                        ";
+                    }
+                    echo "</div>";
+                } else {
+                    echo "<div class=\"row-even-news\">";
+                    if ($news->image !== null) {
+                        echo "
+                            <div class=\"news-news\">
+                                <h2> " . $news->title . " </h2>
+                                <h5> " . $date . " </h5>
+                                <p> " . $news->news . " </p>
+                            </div>
+                            <div class=\"news-image\">
+                                <img src=\"" . asset('images/' . $news->image) . "\" alt=\"" . $news->image . "\" width=\"100%\" height=\"auto\">
+                            </div>
+                        ";
+                    } else {
+                        echo "
+                            <div class=\"news-news-full\">
+                                <h2> " . $news->title . " </h2>
+                                <h5> " . $date . " </h5>
+                                <p> " . $news->news . " </p>
+                            </div>
+                        ";
+                    }
+                    echo "</div>";
+                }
+                $cnt = $cnt + 1;
+            }
+            ?>
         </div>
 
         <div id="Events" class="bg-ash">
@@ -114,7 +164,7 @@
         <div id="Contact" class="bg-sky row">
             <p class="heading" style="color:white"> Contact Us </p>
 
-            <div class="column adrs">
+            <div class="column-contact adrs">
                 <h4>Address:</h4>
                 <hr>
                 <p>Metropolitan University, Sylhet, Bangladesh.</p>
@@ -124,7 +174,7 @@
                 <h4>Contact No: +88-01000000000</h4>
             </div>
 
-            <div class="column msg">
+            <div class="column-contact msg">
                 <h4>Send Message:</h4>
                 <hr>
                 <form action="/sendmsg" method="POST">
@@ -148,7 +198,7 @@
 
                             <tr>
                                 <td class="td-left"><input class="btnMsg" type="submit" name="submit" value="Submit"></td>
-                            </tr>                            
+                            </tr>
                         </tbody>
                     </table>
                 </form>
