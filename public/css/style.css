@@ -43,35 +43,7 @@ html, body {
     color: #FFFFFF;
 }
 
-/* icons & buttons */
-.icon-logo {
-    height: 8vh;
-    width: 8vh;
-    border: #363c4f 3px solid;
-    border-radius: 50%;
-}
-
-.icon-inbox {
-    text-decoration: none;
-    width: 42px;
-    height: 26px;
-    color: #FFFFFF;
-}
-
-.icon-logout {
-    text-decoration: none;
-    width: 32px;
-    height: 38px;
-    color: #FFFFFF;
-}
-
-.icon-plus {
-    text-decoration: none;
-    width: 20px;
-    height: 20px;
-    color: #FFFFFF;
-}
-
+/* buttons & icons */
 .btnClose {
     position: absolute;
     top: 2vh;
@@ -115,6 +87,7 @@ html, body {
 .btnAddItem {
     cursor: pointer;
     font-size: 24px;
+    text-align: center;
     text-decoration: none;
     color: white;
     background-color: rgb(54, 146, 199);
@@ -168,6 +141,96 @@ html, body {
 .btnDelete-noBackground {
     text-decoration: none;
     font-size: 32px;
+}
+
+.icon-logo {
+    height: 8vh;
+    width: 8vh;
+    border: #363c4f 3px solid;
+    border-radius: 50%;
+}
+
+.icon-inbox {
+    text-decoration: none;
+    width: 42px;
+    height: 26px;
+    color: #FFFFFF;
+}
+
+.icon-logout {
+    text-decoration: none;
+    width: 32px;
+    height: 38px;
+    color: #FFFFFF;
+}
+
+.icon-plus {
+    background-image: url("../img/plus.png");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 20px;
+    padding-left: 52px;
+    padding-right: 26px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.icon-save {
+    background-image: url("../img/save.png");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 10px;
+    padding-left: 48px;
+    text-align: left;
+    width: 130px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.icon-cancel {
+    background-image: url("../img/cancel.png");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 12px;
+    padding-left: 44px;
+    text-align: left;
+    width: 130px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.icon-edit {
+    background-image: url("../img/edit.png");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 12px;
+    padding-left: 52px;
+    text-align: left;
+    width: 130px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.icon-delete {
+    background-image: url("../img/delete.png");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 8px;
+    padding-left: 44px;
+    text-align: left;
+    width: 130px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 /* end icons & buttons */
 
@@ -320,6 +383,7 @@ html, body {
     width: 10%;
     color: #fff;
     height: 55px;
+    padding: 10px 20px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -334,7 +398,7 @@ html, body {
 
 .left-side a {
     text-decoration: none;
-    font-size: 2vw;
+    font-size: 24px;
     color: #FFFFFF;
 }
 
@@ -345,6 +409,13 @@ html, body {
     font-size: 24px;
     padding: 10px 20px;
     color: #FFFFFF;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    justify-content: flex-start;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -505,14 +576,20 @@ html, body {
 }
 
 /* data table */
-.tbl-content {
-    border-collapse: collapse;
-    width: 100%;
+.table-data-head {
+    margin: 0;
+    padding: 0;
 }
 
-.tbl-content td, .tbl-content th {
+.tbl-content {
+    width: 100%;
+    text-align: justify;
+}
+
+.tbl-content td {
     border: 1px solid #ddd;
-    padding: 5px;
+    border-radius: 4px;
+    padding: 10px;
 }
 
 .tbl-content tr:nth-child(even) {
@@ -523,12 +600,30 @@ html, body {
     background-color: #ddd;
 }
 
-.tbl-content th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background-color: rgb(76, 122, 175);
-    color: white;
+.tbl-message {
+    width: 100%;
+    text-align: justify;
 }
+
+.tbl-message td{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.tbl-message tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tbl-message tr:hover {
+    background-color: #ddd;
+}
+
+.message-delete {
+    width: 8%;
+    text-align: center;
+}
+/* end data table */
 
 .adrs {
     margin: 0;
@@ -566,7 +661,6 @@ html, body {
         width: 100%;
     }
 }
-/* end data table */
 /* end main sections */
 
 /* input form */
@@ -585,7 +679,6 @@ input[type=text], input[type=email], input[type=file], textarea {
 .txtAreaNews {
     height: 150px;
 }
-/* end input form */
 
 .td-left {
     font-size: 18px;
@@ -593,6 +686,7 @@ input[type=text], input[type=email], input[type=file], textarea {
     padding: 0;
     width: 15%;
 }
+/* end input form */
 
 /* alert */
 .alert {

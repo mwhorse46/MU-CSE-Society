@@ -45,7 +45,10 @@
 
     <div class="nav-bar" style="background:rgb(33, 40, 61);">
         <div class="left-menu">
-            <a href="#Home" style="padding-top:1vh"> <img src="{{ asset('img/logo.png') }}" alt="logo" class="icon-logo"> </a>
+            <a href="#Home" style="padding-top:1vh" class="home"> <img src="{{ asset('img/logo.png') }}" alt="logo" class="icon-logo"> </a>
+
+            <a href="#Home" class="home"> Home
+                <span class="vertical-bar"> &nbsp; </span> </a>
 
             <a href="#News" class="nws"> News
                 <span class="vertical-bar"> &nbsp; </span> </a>
@@ -72,7 +75,7 @@
             </form>
         </div>
     </div>
-    <div class="blank"> &nbsp;</div>
+    <div id="Home" class="blank"> &nbsp;</div>
 
     <div class="block-center position-ref content">
         <div id="News">

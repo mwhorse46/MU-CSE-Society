@@ -39,7 +39,10 @@
     <a href="javascript:void(0);" class="btnOpen" onclick="openSideBar()"> &rAarr; </a>
 
     <div class="nav-bar" id="Nav-bar">
-        <a href="#Home" style="padding-top:1vh"> <img src="{{ asset('img/logo.png') }}" alt="logo" class="icon-logo"> </a>
+        <a href="#Home" style="padding-top:1vh" class="home"> <img src="{{ asset('img/logo.png') }}" alt="logo" class="icon-logo"> </a>
+
+        <a href="#Home" class="home"> Home
+            <span class="vertical-bar"> &nbsp; </span> </a>
 
         <a href="#About" class="abt"> About Us
             <span class="vertical-bar"> &nbsp; </span> </a>
@@ -193,7 +196,7 @@
 
                             <tr>
                                 <td class="td-left"> Message* </td>
-                                <td><textarea id="comment" name="message" required placeholder="Write your message.." maxlength="500"></textarea></td>
+                                <td><textarea id="comment" name="message" required placeholder="Write your message.." maxlength="5000"></textarea></td>
                             </tr>
 
                             <tr>

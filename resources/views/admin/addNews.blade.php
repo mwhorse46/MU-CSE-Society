@@ -49,13 +49,16 @@
                     <tr>
                         <td></td>
                         <td style="text-align:right">
-                            <input class="btnCreate" type="submit" name="submit" value="{{ $title }}">
-                            <a href="{{ route('news') }}" class="btnDelete">Cancel</a>
+                            <input class="btnCreate icon-save" type="submit" name="submit" value="{{ $button }}">
+                            <a href="{{ route('news') }}" class="btnDelete icon-cancel">Cancel</a>
                         </td>
                     </tr>
                     @else
                     <tr>
                         <input type="hidden" name="id" value="{{ $news->id }}">
+                    </tr>
+                    <tr>
+                        <input type="hidden" name="imageOld" value="{{ $news->image }}">
                     </tr>
                     <tr>
                         <td class="td-left"> Date* </td>
@@ -78,8 +81,8 @@
                     <tr>
                         <td></td>
                         <td style="text-align:right">
-                            <input class="btnCreate" type="submit" name="submit" value="{{ $title }}">
-                            <a href="{{ route('news') }}" class="btnDelete">Cancel</a>
+                            <input class="btnCreate icon-save" type="submit" name="submit" value="{{ $button }}">
+                            <a href="{{ route('news') }}" class="btnDelete icon-cancel">Cancel</a>
                         </td>
                     </tr>
                     @endif

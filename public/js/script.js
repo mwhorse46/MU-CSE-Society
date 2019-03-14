@@ -24,6 +24,11 @@ window.addEventListener('scroll', () => {
 h = document.documentElement.clientHeight;
 nav = h * 0.11;
 //changing scroll position on clicking menu
+$('.home').click(function(e){
+    e.preventDefault();
+    var p = $('#Home').offset();
+    $('body, html').animate({ 'scrollTop': p.top }, 250);
+});
 $('.abt').click(function(e){
     e.preventDefault();
     var p = $('#About').offset();

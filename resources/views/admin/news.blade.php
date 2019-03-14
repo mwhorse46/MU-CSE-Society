@@ -15,35 +15,27 @@
         {{ session('status') }}
     </div>
     @endif
-    <a href="{{ route('addnews') }}" class="btnAddItem"> <img src="{{ asset('img/plus.png') }}" alt="" class="icon-plus"> Add News </a>
+    <a href="{{ route('addnews') }}" class="btnAddItem icon-plus"> Add News </a>
     <h3>All News</h3>
 
     <div class="sub-content">
-        <table class="tbl-content" id="Tbl-Message">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Image</th>
-                    <th>News</th>
-                    <th>Edit/Delete</th>
-                </tr>
-            </thead>
-
+        <table class="tbl-content">
             <tbody>
                 @foreach($newses as $news)
                 <tr>
-                    <td width="10%">{{ $news->date }}</td>
-                    <td width="20%" style="word-wrap:break-word">{{ $news->title }}</td>
-                    <td width="20%">
+                    <td>
+                        <h3 class="table-data-head">{{ $news->title }}</h3>
+                        <h5 class="table-data-head">{{ $news->date }}</h5>
+
                         @if($news->image !== null)
                         <img src="{{ asset( 'images/'.$news->image ) }}" alt="{{ $news->image }}" width="100%" height="auto">
                         @endif
-                    </td>
-                    <td style="word-wrap:break-word; text-align:justify">{{ $news->news }}</td>
-                    <td width="10%">
-                        <a href="{{ asset('admin/editNews?id='.$news->id) }}" class="btnCreate"> Edit </a>
-                        <a href="{{ asset('admin/deleteNews?id='.$news->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete"> Delete </a>
+                        
+                        {{ $news->news }}
+                        
+                        <br>
+                        <a href="{{ asset('admin/editNews?id='.$news->id) }}" class="btnCreate icon-edit"> Edit </a>
+                        <a href="{{ asset('admin/deleteNews?id='.$news->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
                     </td>
                 </tr>
                 @endforeach

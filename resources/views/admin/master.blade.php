@@ -26,7 +26,7 @@
 <body>
     <div class="nav-bar-master">
         <div class="left-side">
-            <a href="{{ URL::previous() }}"> &lArr; Back </a>
+            <a href="/admin"> Home </a>
         </div>
 
         <div class="middle-side">

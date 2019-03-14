@@ -23,7 +23,8 @@ class NewsController extends Controller
     {
         $title = "Add News";
         $action = "/admin/insertNews";
-        return view('admin.addNews', ['title' => $title, 'action' => $action]);
+        $button = "Save";
+        return view('admin.addNews', ['title' => $title, 'action' => $action, 'button' => $button]);
     }
 
     public function insert(Request $request)
@@ -57,9 +58,10 @@ class NewsController extends Controller
     {
         $title = "Update News";
         $action = "/admin/updateNews";
+        $button = "Update";
         $id = $request->get('id');
         $news = News::find($id);
-        return view('admin.addNews', ['title' => $title, 'action' => $action, 'news' => $news]);
+        return view('admin.addNews', ['title' => $title, 'action' => $action, 'news' => $news, 'button' => $button]);
     }
 
     public function update(Request $request)
@@ -72,7 +74,7 @@ class NewsController extends Controller
             'date' => 'date_format:d/m/Y'
         ]);
 
-        $image = null;
+        $image = $request->get('imageOld');
         if ($request->hasFile('image')) {
             $imageName = $request->file('image');
             $extension = $imageName->getClientOriginalExtension();
