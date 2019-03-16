@@ -17,8 +17,9 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::guest()) {
-            $news = News::orderBy('date', 'DESC')->get();
-            return view('home.home', ['news' => $news]);
+            $news = News::where('pinned', '=', false)->orderBy('date', 'DESC')->get();
+            $pinned = News::where('pinned', '=', true)->get();
+            return view('home.home', ['news' => $news, 'pinned' => $pinned]);
         } else
             return redirect()->action('AdminController@index');
     }

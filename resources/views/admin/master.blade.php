@@ -61,7 +61,7 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            autoclose: true
+            autoclose: true    
         });
     </script>
     <!-- end script datepickr -->

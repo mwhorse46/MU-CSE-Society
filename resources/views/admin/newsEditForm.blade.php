@@ -48,6 +48,10 @@
                     </tr>
                     <tr>
                         <td></td>
+                        <td style="text-align:left"> <input type="checkbox" name="pinned" value="1"> Pin This News &nbsp;<i>[ If checked previous pinned news will be unpinned ]</i> </td>
+                    </tr>
+                    <tr>
+                        <td></td>
                         <td style="text-align:right">
                             <input class="btnCreate icon-save" type="submit" name="submit" value="{{ $button }}">
                             <a href="{{ route('news') }}" class="btnDelete icon-cancel">Cancel</a>
@@ -77,6 +81,10 @@
                         <td>
                             <textarea class="txtAreaNews" name="news" required placeholder="Write your News.." maxlength="5000">{{ $news->news }}</textarea>
                         </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align:left"><input type="checkbox" name="pinned" {{ $news->pinned ? "checked" : "" }}> Pin This News &nbsp;<i>[ If checked previous pinned news will be unpinned ]</i> </td>
                     </tr>
                     <tr>
                         <td></td>

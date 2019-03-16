@@ -15,8 +15,9 @@ class NewsController extends Controller
     public function index()
     {
         $title = "News";
-        $news = News::orderBy('date', 'DESC')->get();
-        return view('admin.news', ['title' => $title, 'newses' => $news]);
+        $news = News::where('pinned', '=', false)->orderBy('date', 'DESC')->get();
+        $pinned = News::where('pinned', '=', true)->get();
+        return view('admin.news', ['title' => $title, 'newses' => $news, 'pinned' => $pinned]);
     }
 
     public function addForm()
@@ -24,7 +25,7 @@ class NewsController extends Controller
         $title = "Add News";
         $action = "/admin/insertNews";
         $button = "Save";
-        return view('admin.addNews', ['title' => $title, 'action' => $action, 'button' => $button]);
+        return view('admin.newsEditForm', ['title' => $title, 'action' => $action, 'button' => $button]);
     }
 
     public function insert(Request $request)
@@ -42,6 +43,11 @@ class NewsController extends Controller
             $imageName->move(public_path('images/'), $image);
         }
 
+        $pinned = $request->has('pinned') ? true : false;
+        if($pinned === true) {
+            News::where('pinned', true)->update(['pinned' => false]);
+        }
+
         $news = new News();
         $date = $request->input('date');
         $mysqldate = \DateTime::createFromFormat('d/m/Y', $date)->format('Y-m-d');
@@ -49,6 +55,7 @@ class NewsController extends Controller
         $news->title = $request->input('title');
         $news->image = $image;
         $news->news = $request->input('news');
+        $news->pinned = $pinned;
 
         $news->save();
         return redirect('/admin/news')->with('status', 'News Added Successfully.');
@@ -61,7 +68,7 @@ class NewsController extends Controller
         $button = "Update";
         $id = $request->get('id');
         $news = News::find($id);
-        return view('admin.addNews', ['title' => $title, 'action' => $action, 'news' => $news, 'button' => $button]);
+        return view('admin.newsEditForm', ['title' => $title, 'action' => $action, 'news' => $news, 'button' => $button]);
     }
 
     public function update(Request $request)
@@ -81,12 +88,19 @@ class NewsController extends Controller
             $image = date('Y-m-d') . '-' . str_random(10) . '.' . $extension;
             $imageName->move(public_path('images/'), $image);
         }
+
+        $pinned = $request->has('pinned') ? true : false;
+        if($pinned === true) {
+            News::where('pinned', true)->update(['pinned' => false]);
+        }
+
         $date = $request->input('date');
         $mysqldate = \DateTime::createFromFormat('d/m/Y', $date)->format('Y-m-d');
         $news->date = $mysqldate;
         $news->title = $request->input('title');
         $news->image = $image;
         $news->news = $request->input('news');
+        $news->pinned = $pinned;
         $news->save();
         return redirect('/admin/news')->with('status', 'News Updated Successfully.');
     }

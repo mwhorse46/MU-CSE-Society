@@ -21,8 +21,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy('date', 'DESC')->get();
-        return view('admin.adminHome', ['news' => $news]);
+        $news = News::where('pinned', '=', false)->orderBy('date', 'DESC')->get();
+        $pinned = News::where('pinned', '=', true)->get();
+        return view('admin.adminHome', ['news' => $news, 'pinned' => $pinned]);
     }
 
     public function inbox()

@@ -143,6 +143,21 @@ html, body {
     font-size: 32px;
 }
 
+.btnPin {
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(36, 167, 255);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 175px;
+    display: inline-block;
+}
+
 .icon-logo {
     height: 8vh;
     width: 8vh;
@@ -228,6 +243,19 @@ html, body {
     padding-left: 44px;
     text-align: left;
     width: 130px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.icon-pin {
+    background-image: url("../img/pin.png");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 8px;
+    padding-left: 44px;
+    text-align: left;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -398,7 +426,7 @@ html, body {
 
 .left-side a {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 2.5vw;
     color: #FFFFFF;
 }
 
@@ -406,7 +434,7 @@ html, body {
     float: left;
     width: 45%;
     height: 55px;
-    font-size: 24px;
+    font-size: 2.5vw;
     padding: 10px 20px;
     color: #FFFFFF;
     display: -webkit-flex;
@@ -453,6 +481,24 @@ html, body {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+}
+
+@media screen and (max-width: 650px) {
+    .left-side a, .middle-side {
+        font-size: 5vw;
+    }
+
+    .left-side {
+        width: 15%;
+    }
+
+    .middle-side {
+        width: 20%;
+    }
+
+    .right-side {
+        width: 65%;
+    }
 }
 /* end master nav bar*/
 
@@ -584,6 +630,7 @@ html, body {
 .tbl-content {
     width: 100%;
     text-align: justify;
+    border-spacing: 0 8px;
 }
 
 .tbl-content td {
@@ -603,6 +650,7 @@ html, body {
 .tbl-message {
     width: 100%;
     text-align: justify;
+    border-spacing: 2px 8px;
 }
 
 .tbl-message td{

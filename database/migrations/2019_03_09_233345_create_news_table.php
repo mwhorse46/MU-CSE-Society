@@ -19,6 +19,7 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->string('image')->nullable();
             $table->longText('news');
+            $table->boolean('pinned');
             $table->timestamps();
         });
     }

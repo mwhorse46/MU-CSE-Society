@@ -78,6 +78,36 @@
             <p class="heading"> News </p>
             <?php
             $cnt = 1;
+            foreach ($pinned as $pinned) {
+                $date = \DateTime::createFromFormat('Y-m-d', $pinned->date)->format('d M, Y');
+
+                echo "<div class=\"row-odd-news\">";
+                if ($pinned->image !== null) {
+                    echo "
+                        <div class=\"news-image\">
+                            <img src=\"" . asset('images/' . $pinned->image) . "\" alt=\"" . $pinned->image . "\" width=\"100%\" height=\"auto\">
+                        </div>
+                        <div class=\"news-news\">
+                            <button class=\"btnPin icon-pin\">Pinned News</button>
+                            <h2> " . $pinned->title . " </h2>
+                            <h5> " . $date . " </h5>
+                            <p> " . $pinned->news . " </p>
+                        </div>
+                    ";
+                } else {
+                    echo "
+                        <div class=\"news-news-full\">
+                            <button class=\"btnPin icon-pin\">Pinned News</button>
+                            <h2> " . $pinned->title . " </h2>
+                            <h5> " . $date . " </h5>
+                            <p> " . $pinned->news . " </p>
+                        </div>
+                    ";
+                }
+                echo "</div>";
+
+                $cnt = $cnt + 1;
+            }
             foreach ($news as $news) {
                 $date = \DateTime::createFromFormat('Y-m-d', $news->date)->format('d M, Y');
                 if ($cnt % 2 === 1) {
