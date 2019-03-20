@@ -24,16 +24,16 @@
                 @foreach($messages as $message)
                 <tr>
                     <td>
-                        <h3 class="table-data-head"> {{ $message->name }} </h3>
+                        <h3 class="table-data-head message-sender"> {{ $message->name }} </h3>
+                        <h3 class="table-data-head message-delete">
+                            <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')">
+                                <img src="{{ asset('img/delete1.png') }}" alt="delete">
+                            </a>
+                        </h3>
                         <h5 class="table-data-head"> {{ $message->email }} </h5>
                         <h5 class="table-data-head"> {{ $message->created_at }} </h5>
                         <hr>
                         {{ $message->message }}
-                    </td>
-                    <td class="message-delete">
-                        <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete-noBackground">
-                            <img src="{{ asset('img/delete1.png') }}" alt="">
-                        </a>
                     </td>
                 </tr>
                 @endforeach

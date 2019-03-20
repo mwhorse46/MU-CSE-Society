@@ -138,11 +138,6 @@ html, body {
     background-color: rgb(177, 40, 40);
 }
 
-.btnDelete-noBackground {
-    text-decoration: none;
-    font-size: 32px;
-}
-
 .btnPin {
     font-size: 20px;
     text-align: center;
@@ -357,6 +352,7 @@ html, body {
     float: right;
     width: 40%;
     height: 11vh;
+    padding-right: 4vw;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -366,7 +362,7 @@ html, body {
     flex-wrap: wrap;
     -webkit-align-content: center;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .right-menu a {
@@ -426,7 +422,7 @@ html, body {
 
 .left-side a {
     text-decoration: none;
-    font-size: 2.5vw;
+    font-size: 2vw;
     color: #FFFFFF;
 }
 
@@ -434,7 +430,7 @@ html, body {
     float: left;
     width: 45%;
     height: 55px;
-    font-size: 2.5vw;
+    font-size: 2vw;
     padding: 10px 20px;
     color: #FFFFFF;
     display: -webkit-flex;
@@ -485,7 +481,7 @@ html, body {
 
 @media screen and (max-width: 650px) {
     .left-side a, .middle-side {
-        font-size: 5vw;
+        font-size: 4vw;
     }
 
     .left-side {
@@ -545,6 +541,18 @@ html, body {
     text-align: center;
     font-style: italic;
     font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+    .heading-control {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .heading-control {
+        width: 95%;
+    }
 }
 
 .row-odd-news {
@@ -607,6 +615,15 @@ html, body {
     .news-image, .news-news {
         width: 100%;
     }
+
+    .row-even-news, .row-odd-news {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news-image {
+        order: -1;
+    }
 }
 
 .bg-sky {
@@ -667,9 +684,30 @@ html, body {
     background-color: #ddd;
 }
 
+.message-sender {
+    width: 92%;
+    float: left;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
 .message-delete {
     width: 8%;
-    text-align: center;
+    float: left;
+    text-align: right;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.message-delete a {
+    text-decoration: none;
+}
+
+.message-delete img {
+    width: 21px;
+    height: 21px;
 }
 /* end data table */
 
