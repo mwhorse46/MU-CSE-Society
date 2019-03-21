@@ -43,7 +43,7 @@
                     <tr>
                         <td class="td-left"> News* </td>
                         <td>
-                            <textarea class="txtAreaNews" name="news" required placeholder="Write your News.." maxlength="5000"></textarea>
+                            <textarea class="txtAreaLarge" name="news" required placeholder="Write your News.." maxlength="5000"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -79,7 +79,7 @@
                     <tr>
                         <td class="td-left"> News* </td>
                         <td>
-                            <textarea class="txtAreaNews" name="news" required placeholder="Write your News.." maxlength="5000">{{ $news->news }}</textarea>
+                            <textarea class="txtAreaLarge" name="news" required placeholder="Write your News.." maxlength="5000">{{ $news->news }}</textarea>
                         </td>
                     </tr>
                     <tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Message;
 use App\News;
+use App\Event;
 
 class AdminController extends Controller
 {
@@ -23,7 +24,9 @@ class AdminController extends Controller
     {
         $news = News::where('pinned', '=', false)->orderBy('date', 'DESC')->get();
         $pinned = News::where('pinned', '=', true)->get();
-        return view('admin.adminHome', ['news' => $news, 'pinned' => $pinned]);
+        $newEvent = Event::where('ended', '=', false)->orderBy('date', 'ASC')->get();
+        $oldEvent = Event::where('ended', '=', true)->orderBy('date', 'ASC')->get();
+        return view('admin.adminHome', ['news' => $news, 'pinned' => $pinned, 'newEvent' => $newEvent, 'oldEvent' => $oldEvent]);
     }
 
     public function inbox()
@@ -31,12 +34,6 @@ class AdminController extends Controller
         $title = "Inbox";
         $messages = Message::orderBy('created_at', 'DESC')->get();
         return view('admin.inbox', ['title' => $title, 'messages' => $messages]);
-    }
-
-    public function events()
-    {
-        $title = "Events";
-        return view('admin.events', ['title' => $title]);
     }
 
     public function gallery()

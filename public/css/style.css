@@ -255,6 +255,16 @@ html, body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+
+.icon-new {
+    background-image: url("../img/new1.png");
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-position: right;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 /* end icons & buttons */
 
 .side-bar {
@@ -626,6 +636,72 @@ html, body {
     }
 }
 
+.event-title {
+    padding: 10px 0px;
+    color: #FFFFFF;
+}
+
+.event-date {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.weekday {
+    font-size: 18px;
+    text-align: left;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.date-month {
+    font-size: 32px;
+    text-align: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.year {
+    font-size: 22px;
+    text-align: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: flex-end;
+}
+
+.row-event {
+    display: block;
+}
+
+.row-event::after {
+    clear: both;
+    display: table;
+    content: "";
+}
+
+.column-event {
+    float: left;
+    width: 300px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
 .bg-sky {
     background: #4095C9;
 }
@@ -636,6 +712,31 @@ html, body {
 
 .bg-ash {
     background: #efefef;
+}
+
+.bg0 {
+    background-color: #182b69;
+    border-radius: 8px;
+}
+
+.bg1 {
+    background-color: #ebbe44;
+    border-radius: 8px;
+}
+
+.bg2 {
+    background-color: #4CAF50;
+    border-radius: 8px;
+}
+
+.bg3 {
+    background-color: #d35a5a;
+    border-radius: 8px;
+}
+
+.bg4 {
+    background-color: #9912bb;
+    border-radius: 8px;
 }
 
 /* data table */
@@ -750,20 +851,22 @@ html, body {
 /* end main sections */
 
 /* input form */
-input[type=text], input[type=email], input[type=file], textarea {
+input[type=text], input[type=email], input[type=file], input[type=time], textarea {
+    font-size: 16px;
     width: 100%;
     padding: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    resize: vertical;
-    font-size: 16px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
-.txtAreaNews {
+.txtAreaLarge {
     height: 150px;
+    resize: vertical;
 }
 
 .td-left {

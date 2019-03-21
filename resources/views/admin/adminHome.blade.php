@@ -83,7 +83,7 @@
             <?php
             $cnt = 1;
             foreach ($pinned as $pinned) {
-                $date = \DateTime::createFromFormat('Y-m-d', $pinned->date)->format('d M, Y');
+                $date = \DateTime::createFromFormat('Y-m-d', $pinned->date)->format('l, d F, Y');
 
                 echo "<div class=\"row-odd-news\">";
                 if ($pinned->image !== null) {
@@ -113,7 +113,7 @@
                 $cnt = $cnt + 1;
             }
             foreach ($news as $news) {
-                $date = \DateTime::createFromFormat('Y-m-d', $news->date)->format('d M, Y');
+                $date = \DateTime::createFromFormat('Y-m-d', $news->date)->format('l, d F, Y');
                 if ($cnt % 2 === 1) {
                     echo "<div class=\"row-odd-news\">";
                     if ($news->image !== null) {
@@ -169,9 +169,112 @@
         <div id="Events" class="bg-ash">
             <p class="heading-control"> Events <a href="{{ route('events') }}" class="btnControl"> Go To Control Page &roarr; </a> </p>
 
-            <p class="sub-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec venenatis nisi. Vivamus dolor libero, maximus eget egestas in, feugiat at odio. In vehicula lorem ut nisl laoreet, vitae facilisis libero dictum. Ut id eros nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam arcu sem, viverra eget est a, faucibus pulvinar massa. Integer sagittis finibus nisl, ut tempor tellus. Quisque vehicula justo convallis, pulvinar erat vitae, eleifend quam. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id egestas mauris. Vivamus a lorem blandit, congue risus egestas, eleifend justo. Nam ullamcorper tortor eros.
+            <div class="row-event">
+                @foreach($newEvent as $new)
+                <div class="column-event">
+                    <?php
+                    $color = mt_rand(0, 4);
+                    echo "<h3 class=\"table-data-head event-title icon-new bg" . $color . "\" style=\"padding: 10px 0px;\">
+                    <center> " . $new->title . " </center>
+                </h3>";
+                    ?>
+                    <h5 class="table-data-head event-date">
+                        <div class="weekday">
+                            {{ \DateTime::createFromFormat('Y-m-d', $new->date)->format('l') }}
+                        </div>
+                        <div class="date-month">
+                            {{ \DateTime::createFromFormat('Y-m-d', $new->date)->format('d M,') }}
+                        </div>
+                        <div class="year">
+                            {{ \DateTime::createFromFormat('Y-m-d', $new->date)->format('Y') }}
+                        </div>
+                    </h5>
+                    <h5 class="table-data-head">
+                        @if ($new->stime !== null)
+                        {{ \DateTime::createFromFormat('H:i:s', $new->stime)->format('h:i A') }} -
+                        @endif
 
-                Proin elementum vestibulum felis, quis vehicula nibh egestas non. Nullam elementum nisl nunc, nec ultrices massa tincidunt ac. Donec at libero at ipsum faucibus tincidunt. Vestibulum non consequat orci, malesuada vehicula magna. Proin eget nulla volutpat erat condimentum tempor eget id libero. Ut et pulvinar augue. Phasellus mollis libero at nulla blandit, non tincidunt tortor ultricies. Curabitur risus sem, ornare sit amet augue vel, bibendum lobortis nulla. Proin sit amet urna massa. Nullam vel mi at nisi convallis feugiat. Donec a mollis massa. </p>
+                        @if ($new->etime !== null)
+                        {{ \DateTime::createFromFormat('H:i:s', $new->etime)->format('h:i A') }}
+                        @endif
+                    </h5>
+                    @if ($new->place !== null)
+                    <h5 class="table-data-head">
+                        At: {{ $new->place }}
+                    </h5>
+                    @endif
+
+                    @if($new->image !== null)
+                    <img src="{{ asset( 'images/'.$new->image ) }}" alt="{{ $new->image }}" width="100%" height="auto">
+                    @endif
+
+                    <p style="text-align: justify; padding: 4px 10px;"> {{ $new->description }} </p>
+                    @if ($new->registration !== null)
+                    <h5 class="table-data-head">
+                        Registration Link: {{ $new->registration }}
+                    </h5>
+                    @endif
+                    @if ($new->photos !== null)
+                    <h5 class="table-data-head">
+                        Photo Album: {{ $new->photos }}
+                    </h5>
+                    @endif
+                </div>
+                @endforeach
+
+                @foreach($oldEvent as $old)
+                <div class="column-event">
+                    <?php
+                    $color = mt_rand(0, 4);
+                    echo "<h3 class=\"table-data-head event-title bg" . $color . "\" style=\"padding: 10px 0px;\">
+                    <center>" . $old->title . "</center>
+                </h3>";
+                    ?>
+                    <h5 class="table-data-head event-date">
+                        <div class="weekday">
+                            {{ \DateTime::createFromFormat('Y-m-d', $old->date)->format('l') }}
+                        </div>
+                        <div class="date-month">
+                            {{ \DateTime::createFromFormat('Y-m-d', $old->date)->format('d M,') }}
+                        </div>
+                        <div class="year">
+                            {{ \DateTime::createFromFormat('Y-m-d', $old->date)->format('Y') }}
+                        </div>
+                    </h5>
+                    <h5 class="table-data-head">
+                        @if ($old->stime !== null)
+                        {{ \DateTime::createFromFormat('H:i:s', $old->stime)->format('h:i A') }} -
+                        @endif
+
+                        @if ($old->etime !== null)
+                        {{ \DateTime::createFromFormat('H:i:s', $old->etime)->format('h:i A') }}
+                        @endif
+                    </h5>
+                    @if ($old->place !== null)
+                    <h5 class="table-data-head">
+                        At: {{ $old->place }}
+                    </h5>
+                    @endif
+
+                    @if($old->image !== null)
+                    <img src="{{ asset( 'images/'.$old->image ) }}" alt="{{ $old->image }}" width="100%" height="auto">
+                    @endif
+
+                    <p style="text-align: justify; padding: 4px 10px;"> {{ $old->description }} </p>
+
+                    @if ($old->registration !== null)
+                    <h5 class="table-data-head">
+                        Registration Link: {{ $old->registration }}
+                    </h5>
+                    @endif
+                    @if ($old->photos !== null)
+                    <h5 class="table-data-head">
+                        Photo Album: {{ $old->photos }}
+                    </h5>
+                    @endif
+                </div>
+                @endforeach
+            </div>
         </div>
 
         <div id="Gallery">

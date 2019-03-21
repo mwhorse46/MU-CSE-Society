@@ -26,7 +26,7 @@
                     <td>
                         <button class="btnPin icon-pin">Pinned News</button>
                         <h3 class="table-data-head">{{ $pinned->title }}</h3>
-                        <h5 class="table-data-head">{{ $pinned->date }}</h5>
+                        <h5 class="table-data-head">{{ \DateTime::createFromFormat('Y-m-d', $pinned->date)->format('l, d F, Y') }}</h5>
 
                         @if($pinned->image !== null)
                         <img src="{{ asset( 'images/'.$pinned->image ) }}" alt="{{ $pinned->image }}" width="100%" height="auto">
@@ -45,7 +45,7 @@
                 <tr>
                     <td>
                         <h3 class="table-data-head">{{ $news->title }}</h3>
-                        <h5 class="table-data-head">{{ $news->date }}</h5>
+                        <h5 class="table-data-head">{{ \DateTime::createFromFormat('Y-m-d', $news->date)->format('l, d F, Y') }}</h5>
 
                         @if($news->image !== null)
                         <img src="{{ asset( 'images/'.$news->image ) }}" alt="{{ $news->image }}" width="100%" height="auto">

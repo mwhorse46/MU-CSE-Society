@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Message;
 use App\News;
+use App\Event;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,9 @@ class HomeController extends Controller
         if (Auth::guest()) {
             $news = News::where('pinned', '=', false)->orderBy('date', 'DESC')->get();
             $pinned = News::where('pinned', '=', true)->get();
-            return view('home.home', ['news' => $news, 'pinned' => $pinned]);
+            $newEvent = Event::where('ended', '=', false)->orderBy('date', 'ASC')->get();
+            $oldEvent = Event::where('ended', '=', true)->orderBy('date', 'ASC')->get();
+            return view('home.home', ['news' => $news, 'pinned' => $pinned, 'newEvent' => $newEvent, 'oldEvent' => $oldEvent]);
         } else
             return redirect()->action('AdminController@index');
     }
