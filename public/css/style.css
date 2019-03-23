@@ -255,16 +255,6 @@ html, body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-
-.icon-new {
-    background-image: url("../img/new1.png");
-    background-size: 32px;
-    background-repeat: no-repeat;
-    background-position: right;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
 /* end icons & buttons */
 
 .side-bar {
@@ -637,7 +627,8 @@ html, body {
 }
 
 .event-title {
-    padding: 10px 0px;
+    margin: 0;
+    padding: 10px 10px;
     color: #FFFFFF;
 }
 
@@ -682,7 +673,11 @@ html, body {
 }
 
 .row-event {
-    display: block;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .row-event::after {
@@ -697,6 +692,17 @@ html, body {
     margin: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    align-self: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.icon-new {
+    background-image: url("../img/new1.png");
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-position: right;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;

@@ -170,7 +170,7 @@
                 <div class="column-event">
                     <?php
                     $color = mt_rand(0, 4);
-                    echo "<h3 class=\"table-data-head event-title icon-new bg" . $color . "\" style=\"padding: 10px 0px;\">
+                    echo "<h3 class=\"event-title icon-new bg" . $color . "\">
                     <center> " . $new->title . " </center>
                 </h3>";
                     ?>
@@ -224,7 +224,7 @@
                 <div class="column-event">
                     <?php
                     $color = mt_rand(0, 4);
-                    echo "<h3 class=\"table-data-head event-title bg" . $color . "\" style=\"padding: 10px 0px;\">
+                    echo "<h3 class=\"event-title bg" . $color . "\">
                     <center>" . $old->title . "</center>
                 </h3>";
                     ?>
