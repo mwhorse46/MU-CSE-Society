@@ -23,7 +23,7 @@
  vi) Run these commands serially without quotation marks
 	'composer update'
 	'php artisan key:generate'
-	'php artisan migrage'
+	'php artisan migrate'
 	'php aritsan serve'
 
  vii) Now open any browser and visit localhost:8000.
