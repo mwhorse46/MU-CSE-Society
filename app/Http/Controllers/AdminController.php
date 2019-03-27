@@ -42,12 +42,6 @@ class AdminController extends Controller
         return view('admin.gallery', ['title' => $title]);
     }
 
-    public function committee()
-    {
-        $title = "Committee";
-        return view('admin.committee', ['title' => $title]);
-    }
-
     public function deleteMsg(Request $request)
     {
         $id = $request->get('id');
