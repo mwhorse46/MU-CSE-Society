@@ -12,7 +12,7 @@
 */
 
 //Home Routes
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index');
 Route::POST('/sendmsg','HomeController@insertMessage');
 
@@ -45,6 +45,9 @@ Route::get('admin/deleteEvent','EventController@delete')->name('deleteevent');
 //Committee Routes
 Route::get('/admin/committee', 'MemberController@index')->name('committee');
 Route::get('/admin/addMember','MemberController@addForm')->name('addmember');
+Route::POST('/admin/insertMember','MemberController@insertMember')->name('insertmember');
+Route::get('/admin/editMember','MemberController@editForm')->name('editmember');
+Route::POST('/admin/updateMember','MemberController@updateMember')->name('updatemember');
 Route::POST('/admin/insertRole','MemberController@insertRole')->name('insertrole');
 Route::POST('admin/updateRole','MemberController@updateRole')->name('updaterole');
 Route::get('admin/deleteRole','MemberController@deleteRole')->name('deleterole');

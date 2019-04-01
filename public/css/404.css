@@ -1,0 +1,41 @@
+body {
+    font-family: 'Love Ya Like A Sister', cursive;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eaeaea;
+}
+
+.wrap {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10vh;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 35vw;
+}
+
+.logo p {
+    color: #272727;
+    font-size: 40px;
+}
+
+.sub a {
+    color: #fff;
+    background: #272727;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: arial, serif;
+    font-weight: bold;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}

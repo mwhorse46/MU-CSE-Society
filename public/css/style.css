@@ -257,6 +257,32 @@ html, body {
     -webkit-box-sizing: border-box;
 }
 
+.icon-drop-down {
+    background-image: url("../img/dropdown.png");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 26px;
+    display: inline;
+    text-align: left;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.icon-drop-up {
+    background-image: url("../img/dropup.png");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 26px;
+    display: inline;
+    text-align: left;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
 /* end icons & buttons */
 
 .side-bar {
@@ -363,8 +389,8 @@ html, body {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-align-content: center;
-    align-content: center;
+    -webkit-align-items: center;
+    align-items: center;
     justify-content: flex-end;
 }
 
@@ -374,8 +400,8 @@ html, body {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-align-content: center;
-    align-content: center;
+    -webkit-align-items: center;
+    align-items: center;
     justify-content: center;
 }
 
@@ -417,8 +443,8 @@ html, body {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-align-content: center;
-    align-content: center;
+    -webkit-align-items: center;
+    align-items: center;
     justify-content: center;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -442,8 +468,8 @@ html, body {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-align-content: center;
-    align-content: center;
+    -webkit-align-items: center;
+    align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -459,8 +485,8 @@ html, body {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-align-content: center;
-    align-content: center;
+    -webkit-align-items: center;
+    align-items: center;
     justify-content: flex-end;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -476,8 +502,8 @@ html, body {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-align-content: center;
-    align-content: center;
+    -webkit-align-items: center;
+    align-items: center;
     justify-content: center;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -560,7 +586,6 @@ html, body {
 }
 
 .row-odd-news {
-    /*background-color: rgb(253, 142, 68);*/
     text-align: justify;
     width: 100%;
     box-sizing: border-box;
@@ -649,7 +674,7 @@ html, body {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-items: flex-start;
 }
 
 .date-month {
@@ -660,7 +685,7 @@ html, body {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
 .year {
@@ -671,7 +696,7 @@ html, body {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     justify-content: flex-end;
-    align-content: flex-end;
+    align-items: flex-end;
 }
 
 .row-event {
@@ -695,6 +720,7 @@ html, body {
     border: 1px solid #ddd;
     border-radius: 8px;
     align-self: center;
+    box-shadow: 2px 2px 20px rgb(180, 178, 178);
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -732,6 +758,49 @@ html, body {
     text-align: center;
 }
 
+.role {
+    display: block;
+    text-align: left;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.collapsible {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 20px;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-size: 18px;
+    text-align: left;
+}
+
+.rotate-up {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+.rotate-down {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.toggle {
+    display: inline-block;
+    transition: all 0.5s 0s;
+}
+
 /* data table */
 
 .table-data-head {
@@ -760,10 +829,9 @@ html, body {
 }
 
 .tbl-role {
-    width: 60%;
+    width: 100%;
     text-align: center;
     border-collapse: collapse;
-    margin: 0 auto;
 }
 
 .tbl-role td {
@@ -868,7 +936,7 @@ html, body {
 
 /* input form */
 
-input[type=text], input[type=email], input[type=file], input[type=time], input[type=number], textarea {
+input[type=text], input[type=email], input[type=file], input[type=time], input[type=number], textarea, select {
     font-size: 16px;
     width: 100%;
     padding: 6px;

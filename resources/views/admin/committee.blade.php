@@ -17,26 +17,28 @@
     @endif
 
     <div class="sub-content">
-        <h3>Member's Roles</h3>
-        <table class="tbl-role">
-            <tbody>
-                <tr>
-                    <td>Role</td>
-                    <td>Rank</td>
-                    <td><a class="btnAddItem icon-plus" style="font-size:16px" onclick="openRoleAddForm()"> Add New Role </a></td>
-                </tr>
-                @foreach($roles as $role)
-                <tr>
-                    <td>{{ $role->role }}</td>
-                    <td>{{ $role->rank }}</td>
-                    <td>
-                        <a onclick="openRoleEditForm( {{$role->id}}, '{{$role->role}}', {{$role->rank}})" class="btnCreate icon-edit"> Edit </a>
-                        <a href="{{ asset('admin/deleteRole?id='.$role->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <button class="collapsible" onclick="toggle()"><div class="icon-drop-down toggle rotate-down">&nbsp;</div>&nbsp;&nbsp;<strong>Member's Roles</strong></button>
+        <div class="role">
+            <table class="tbl-role">
+                <tbody>
+                    <tr>
+                        <td><strong>Role</strong></td>
+                        <td><strong>Rank</strong></td>
+                        <td><a class="btnAddItem icon-plus" style="font-size:16px" onclick="openRoleAddForm()"> Add New Role </a></td>
+                    </tr>
+                    @foreach($roles as $role)
+                    <tr>
+                        <td>{{ $role->role }}</td>
+                        <td>{{ $role->rank }}</td>
+                        <td>
+                            <a onclick="openRoleEditForm( {{$role->id}}, '{{$role->role}}', {{$role->rank}})" class="btnCreate icon-edit"> Edit </a>
+                            <a href="{{ asset('admin/deleteRole?id='.$role->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="form-popup form-role" id="RoleForm">
@@ -64,7 +66,6 @@
         </form>
     </div>
 
-    <br>
     <a href="{{ route('addmember') }}" class="btnAddItem icon-plus"> Add Member </a>
     <h3>Committee Members</h3>
 

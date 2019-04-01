@@ -63,21 +63,51 @@ $('.cntct').click(function (e) {
 
 //function for opening pop-up Role form
 function openRoleAddForm() {
-    document.getElementById("RoleForm").style.display = "block";
+    document.getElementById("ROLE").value = "";
+    document.getElementById("RANK").value = "";
+    document.getElementById("BtnAdd").value = "Add";
     document.roleForm.action = "/admin/insertRole";
+    document.getElementById("RoleForm").style.display = "block";
 }
 
 //function for opening pop-up Role form
 function openRoleEditForm(id, role, rank) {
-    document.getElementById("RoleForm").style.display = "block";
-    document.getElementById("ID").value  = id;
+    document.getElementById("ID").value = id;
     document.getElementById("ROLE").value = role;
     document.getElementById("RANK").value = rank;
-    document.getElementById("BtnAdd").value="Update";
+    document.getElementById("BtnAdd").value = "Update";
     document.roleForm.action = "/admin/updateRole";
+    document.getElementById("RoleForm").style.display = "block";
 }
 
 //function for opening pop-up Role form
 function closeRoleForm() {
     document.getElementById("RoleForm").style.display = "none";
+}
+
+//collapsible function
+var coll = document.getElementsByClassName("collapsible");
+var i;
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+}
+
+//drop down rotation
+function toggle() {
+    var upClass = 'rotate-up';
+    var downClass = 'rotate-down';
+    var toggle = document.querySelector('.toggle');
+
+    if (~toggle.className.indexOf(downClass)) {
+        toggle.className = toggle.className.replace(downClass, upClass);
+    } else {
+        toggle.className = toggle.className.replace(upClass, downClass);
+    }
 }

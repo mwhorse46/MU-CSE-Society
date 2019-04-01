@@ -55,7 +55,7 @@
                     <tr>
                         <td class="td-left"> Description* </td>
                         <td>
-                            <textarea class="txtAreaLarge" name="description" required placeholder="Event's Description.." maxlength="500"></textarea>
+                            <textarea class="txtAreaLarge" name="description" required placeholder="Event's Description.." maxlength="1000"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -115,7 +115,7 @@
                     <tr>
                         <td class="td-left"> Description* </td>
                         <td>
-                            <textarea class="txtAreaLarge" name="description" required placeholder="Event's Description.." maxlength="500"> {{ $event->description }} </textarea>
+                            <textarea class="txtAreaLarge" name="description" required placeholder="Event's Description.." maxlength="1000"> {{ $event->description }} </textarea>
                         </td>
                     </tr>
                     <tr>
