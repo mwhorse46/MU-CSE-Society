@@ -17,7 +17,9 @@
     @endif
 
     <div class="sub-content">
-        <button class="collapsible" onclick="toggle()"><div class="icon-drop-down toggle rotate-down">&nbsp;</div>&nbsp;&nbsp;<strong>Member's Roles</strong></button>
+        <button class="collapsible" onclick="toggle()">
+            <div class="icon-drop-down toggle rotate-down">&nbsp;</div>&nbsp;&nbsp;<strong>Member's Roles</strong>
+        </button>
         <div class="role">
             <table class="tbl-role">
                 <tbody>
@@ -68,6 +70,49 @@
 
     <a href="{{ route('addmember') }}" class="btnAddItem icon-plus"> Add Member </a>
     <h3>Committee Members</h3>
+
+    <div class="sub-content">
+        <div class="row-member">
+            @php ($delay = 0.0)
+            @foreach($topMember as $member)
+            <div class="wow slideInUp column-member" data-wow-delay="{{ $delay.'s' }}">
+                <img src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
+                <div class="info-member">
+                    <h2>{{ $member->name }}</h2>
+                    <h3>{{ $member->role }}</h3>
+                    <h4>{{ $member->mail }}</h4>
+                    <h4>{{ $member->contact }}</h4>
+                </div>
+                <div class="works-member">
+                    <strong>Works: </strong>{{ $member->work }}
+                </div>
+
+                <a href="{{ asset('admin/editMember?id='.$member->id) }}" class="btnCreate icon-edit"> Edit </a>
+                <a href="{{ asset('admin/deleteMember?id='.$member->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
+            </div>
+            @php ($delay = $delay + 0.15)
+            @endforeach
+
+            @foreach($others as $member)
+            <div class="wow slideInUp column-member" data-wow-delay="{{ $delay.'s' }}">
+                <img src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
+                <div class="info-member">
+                    <h2>{{ $member->name }}</h2>
+                    <h3>{{ $member->role }}</h3>
+                    <h4>{{ $member->mail }}</h4>
+                    <h4>{{ $member->contact }}</h4>
+                </div>
+                <div class="works-member">
+                    <strong>Works: </strong>{{ $member->work }}
+                </div>
+
+                <a href="{{ asset('admin/editMember?id='.$member->id) }}" class="btnCreate icon-edit"> Edit </a>
+                <a href="{{ asset('admin/deleteMember?id='.$member->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
+            </div>
+            @php ($delay = $delay + 0.15)
+            @endforeach
+        </div>
+    </div>
 
 
 </div>

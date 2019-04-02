@@ -18,14 +18,14 @@ class MemberController extends Controller
     {
         $title = "Committee";
         $roles = Role::orderBy('rank', 'ASC')->get();
-        $topMember = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(0)->take(3)->orderBy('rank', 'ASC')->get();
+        $topMember = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(0)->take(3)->orderBy('rank', 'ASC')->get(['members.*', 'roles.role', 'roles.rank']);
 
         $count = Member::count();
         $limit = $count - 3;
         if ($count > 3) {
-            $others = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(3)->take($limit)->orderBy('rank', 'ASC')->get();
+            $others = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(3)->take($limit)->orderBy('rank', 'ASC')->get(['members.*', 'roles.role', 'roles.rank']);
         } else {
-            $others = null;
+            $others = Member::where('name', '=', 'null');
         }
         return view('admin.committee', ['title' => $title, 'roles' => $roles, 'topMember' => $topMember, 'others' => $others]);
     }
@@ -109,6 +109,14 @@ class MemberController extends Controller
 
         $member->save();
         return redirect('/admin/committee')->with('status', 'Member Updated Successfully.');
+    }
+
+    public function deleteMember(Request $request)
+    {
+        $id = $request->get('id');
+        $member = Member::find($id);
+        $member->delete();
+        return redirect('/admin/committee')->with('status', 'Member Deleted Successfully.');
     }
 
     public function insertRole(Request $request)

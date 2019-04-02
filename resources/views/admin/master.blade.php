@@ -11,6 +11,9 @@
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
+    <!-- style animation -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+
     <!-- style datepicker -->
     <link rel="stylesheet" type="text/css" href="{{ asset('jquery-ui/jquery-ui.min.css') }}">
 
@@ -49,6 +52,7 @@
 
 
     <!-- script -->
+    <script src="{{ asset('js/wow.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
@@ -65,6 +69,14 @@
         });
     </script>
     <!-- end script datepickr -->
+
+    <!-- wow animation -->
+    <script>
+        $(function() {
+            new WOW().init();
+        });
+    </script>
+    <!-- end wow animation -->
 </body>
 
 </html> 

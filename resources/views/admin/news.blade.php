@@ -22,7 +22,7 @@
         <table class="tbl-content">
             <tbody>
                 @foreach($pinned as $pinned)
-                <tr>
+                <tr class="wow slideInUp ">
                     <td>
                         <button class="btnPin icon-pin">Pinned News</button>
                         <h3 class="table-data-head">{{ $pinned->title }}</h3>
@@ -42,7 +42,7 @@
                 @endforeach
 
                 @foreach($newses as $news)
-                <tr>
+                <tr class="wow slideInUp ">
                     <td>
                         <h3 class="table-data-head">{{ $news->title }}</h3>
                         <h5 class="table-data-head">{{ \DateTime::createFromFormat('Y-m-d', $news->date)->format('l, d F, Y') }}</h5>

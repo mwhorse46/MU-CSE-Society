@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Message;
 use App\News;
 use App\Event;
+use App\Member;
 
 class AdminController extends Controller
 {
@@ -26,7 +28,16 @@ class AdminController extends Controller
         $pinned = News::where('pinned', '=', true)->get();
         $newEvent = Event::where('ended', '=', false)->orderBy('date', 'ASC')->get();
         $oldEvent = Event::where('ended', '=', true)->orderBy('date', 'ASC')->get();
-        return view('admin.adminHome', ['news' => $news, 'pinned' => $pinned, 'newEvent' => $newEvent, 'oldEvent' => $oldEvent]);
+
+        $topMember = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(0)->take(3)->orderBy('rank', 'ASC')->get(['members.*', 'roles.role', 'roles.rank']);
+        $count = Member::count();
+        $limit = $count - 3;
+        if ($count > 3) {
+            $others = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(3)->take($limit)->orderBy('rank', 'ASC')->get(['members.*', 'roles.role', 'roles.rank']);
+        } else {
+            $others = Member::where('name', '=', 'null');
+        }
+        return view('admin.adminHome', ['news' => $news, 'pinned' => $pinned, 'newEvent' => $newEvent, 'oldEvent' => $oldEvent, 'topMember' => $topMember, 'others' => $others]);
     }
 
     public function inbox()

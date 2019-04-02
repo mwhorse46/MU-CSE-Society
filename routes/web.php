@@ -48,6 +48,7 @@ Route::get('/admin/addMember','MemberController@addForm')->name('addmember');
 Route::POST('/admin/insertMember','MemberController@insertMember')->name('insertmember');
 Route::get('/admin/editMember','MemberController@editForm')->name('editmember');
 Route::POST('/admin/updateMember','MemberController@updateMember')->name('updatemember');
+Route::get('/admin/deleteMember','MemberController@deleteMember')->name('deletemember');
 Route::POST('/admin/insertRole','MemberController@insertRole')->name('insertrole');
 Route::POST('admin/updateRole','MemberController@updateRole')->name('updaterole');
 Route::get('admin/deleteRole','MemberController@deleteRole')->name('deleterole');

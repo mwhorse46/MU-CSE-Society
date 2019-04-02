@@ -11,8 +11,11 @@
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
+    <!-- style animation -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+
     <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js "></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:100,600">
@@ -81,7 +84,7 @@
             foreach ($pinned as $pinned) {
                 $date = \DateTime::createFromFormat('Y-m-d', $pinned->date)->format('l, d F, Y');
 
-                echo "<div class=\"row-odd-news\">";
+                echo "<div class=\"wow slideInUp row-odd-news\">";
                 if ($pinned->image !== null) {
                     echo "
                         <div class=\"news-image\">
@@ -111,7 +114,7 @@
             foreach ($news as $news) {
                 $date = \DateTime::createFromFormat('Y-m-d', $news->date)->format('l, d F, Y');
                 if ($cnt % 2 === 1) {
-                    echo "<div class=\"row-odd-news\">";
+                    echo "<div class=\"wow slideInUp row-odd-news\">";
                     if ($news->image !== null) {
                         echo "
                             <div class=\"news-image\">
@@ -134,7 +137,7 @@
                     }
                     echo "</div>";
                 } else {
-                    echo "<div class=\"row-even-news\">";
+                    echo "<div class=\"wow slideInUp row-even-news\">";
                     if ($news->image !== null) {
                         echo "
                             <div class=\"news-news\">
@@ -166,8 +169,9 @@
             <p class="heading"> Events </p>
 
             <div class="row-event">
+                @php ($delay = 0.0)
                 @foreach($newEvent as $new)
-                <div class="column-event">
+                <div class="wow slideInUp column-event" data-wow-delay="{{ $delay.'s' }}">
                     <?php
                     $color = mt_rand(0, 4);
                     echo "<h3 class=\"event-title icon-new bg" . $color . "\">
@@ -218,10 +222,11 @@
                     </h5>
                     @endif
                 </div>
+                @php ($delay = $delay + 0.15)
                 @endforeach
 
                 @foreach($oldEvent as $old)
-                <div class="column-event">
+                <div class="wow slideInUp column-event" data-wow-delay="{{ $delay.'s' }}">
                     <?php
                     $color = mt_rand(0, 4);
                     echo "<h3 class=\"event-title bg" . $color . "\">
@@ -271,6 +276,7 @@
                     </h5>
                     @endif
                 </div>
+                @php ($delay = $delay + 0.15)
                 @endforeach
             </div>
         </div>
@@ -286,9 +292,41 @@
         <div id="Committee" class="bg-ash">
             <p class="heading"> Committee </p>
 
-            <p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec venenatis nisi. Vivamus dolor libero, maximus eget egestas in, feugiat at odio. In vehicula lorem ut nisl laoreet, vitae facilisis libero dictum. Ut id eros nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam arcu sem, viverra eget est a, faucibus pulvinar massa. Integer sagittis finibus nisl, ut tempor tellus. Quisque vehicula justo convallis, pulvinar erat vitae, eleifend quam. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id egestas mauris. Vivamus a lorem blandit, congue risus egestas, eleifend justo. Nam ullamcorper tortor eros.
+            
+            <div class="row-member">
+                @php ($delay = 0.0)
+                @foreach($topMember as $member)
+                <div class="wow slideInUp column-member" data-wow-delay="{{ $delay.'s' }}">
+                    <img src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
+                    <div class="info-member">
+                        <h2>{{ $member->name }}</h2>
+                        <h3>{{ $member->role }}</h3>
+                        <h4>{{ $member->mail }}</h4>
+                        <h4>{{ $member->contact }}</h4>
+                    </div>
+                    <div class="works-member">
+                        <strong>Works: </strong>{{ $member->work }}
+                    </div>
+                </div>
+                @php ($delay = $delay + 0.15)
+                @endforeach
 
-                Proin elementum vestibulum felis, quis vehicula nibh egestas non. Nullam elementum nisl nunc, nec ultrices massa tincidunt ac. Donec at libero at ipsum faucibus tincidunt. Vestibulum non consequat orci, malesuada vehicula magna. Proin eget nulla volutpat erat condimentum tempor eget id libero. Ut et pulvinar augue. Phasellus mollis libero at nulla blandit, non tincidunt tortor ultricies. Curabitur risus sem, ornare sit amet augue vel, bibendum lobortis nulla. Proin sit amet urna massa. Nullam vel mi at nisi convallis feugiat. Donec a mollis massa.</p>
+                @foreach($others as $member)
+                <div class="wow slideInUp column-member" data-wow-delay="{{ $delay.'s' }}">
+                    <img src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
+                    <div class="info-member">
+                        <h2>{{ $member->name }}</h2>
+                        <h3>{{ $member->role }}</h3>
+                        <h4>{{ $member->mail }}</h4>
+                        <h4>{{ $member->contact }}</h4>
+                    </div>
+                    <div class="works-member">
+                        <strong>Works: </strong>{{ $member->work }}
+                    </div>
+                </div>
+                @php ($delay = $delay + 0.15)
+                @endforeach
+            </div>
         </div>
 
         <div id="About">
@@ -354,7 +392,14 @@
     </div>
 
     <!-- script -->
+    <script src="{{ asset('js/wow.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script>
+        //init animation
+        $(function() {
+            new WOW().init();
+        });
+    </script>
 </body>
 
 </html> 

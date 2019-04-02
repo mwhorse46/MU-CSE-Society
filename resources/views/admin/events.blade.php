@@ -20,8 +20,9 @@
 
     <div class="sub-content">
         <div class="row-event">
+            @php ($delay = 0.0)
             @foreach($new as $new)
-            <div class="column-event">
+            <div class="wow slideInUp column-event" data-wow-delay="{{ $delay.'s' }}">
                 <?php
                 $color = mt_rand(0, 4);
                 echo "<h3 class=\"event-title icon-new bg" . $color . "\">
@@ -75,10 +76,11 @@
                 <a href="{{ asset('admin/editEvent?id='.$new->id) }}" class="btnCreate icon-edit"> Edit </a>
                 <a href="{{ asset('admin/deleteEvent?id='.$new->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
             </div>
+            @php ($delay = $delay + 0.15)
             @endforeach
 
             @foreach($old as $old)
-            <div class="column-event">
+            <div class="wow slideInUp column-event" data-wow-delay="{{ $delay.'s' }}">
                 <?php
                 $color = mt_rand(0, 4);
                 echo "<h3 class=\"event-title bg" . $color . "\">
@@ -131,6 +133,7 @@
                 <a href="{{ asset('admin/editEvent?id='.$old->id) }}" class="btnCreate icon-edit"> Edit </a>
                 <a href="{{ asset('admin/deleteEvent?id='.$old->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
             </div>
+            @php ($delay = $delay + 0.15)
             @endforeach
         </div>
     </div>
