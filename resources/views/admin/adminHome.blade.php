@@ -88,7 +88,7 @@
             foreach ($pinned as $pinned) {
                 $date = \DateTime::createFromFormat('Y-m-d', $pinned->date)->format('l, d F, Y');
 
-                echo "<div class=\"wow slideInUp row-odd-news\">";
+                echo "<div class=\"wow slideInUp row-flex\">";
                 if ($pinned->image !== null) {
                     echo "
                         <div class=\"news-image\">
@@ -118,7 +118,7 @@
             foreach ($news as $news) {
                 $date = \DateTime::createFromFormat('Y-m-d', $news->date)->format('l, d F, Y');
                 if ($cnt % 2 === 1) {
-                    echo "<div class=\"wow slideInUp row-odd-news\">";
+                    echo "<div class=\"wow slideInUp row-flex\">";
                     if ($news->image !== null) {
                         echo "
                             <div class=\"news-image\">
@@ -141,7 +141,7 @@
                     }
                     echo "</div>";
                 } else {
-                    echo "<div class=\"wow slideInUp row-even-news\">";
+                    echo "<div class=\"wow slideInUp row-even-news row-flex\">";
                     if ($news->image !== null) {
                         echo "
                             <div class=\"news-news\">
@@ -172,10 +172,10 @@
         <div id="Events" class="bg-ash">
             <p class="heading-control"> Events <a href="{{ route('events') }}" class="btnControl"> Go To Control Page &roarr; </a> </p>
 
-            <div class="row-event">
+            <div class="row-flex">
                 @php ($delay = 0.0)
                 @foreach($newEvent as $new)
-                <div class="wow slideInUp column-event" data-wow-delay="{{ $delay.'s' }}">
+                <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
                     <?php
                     $color = mt_rand(0, 4);
                     echo "<h3 class=\"event-title icon-new bg" . $color . "\">
@@ -228,7 +228,7 @@
                 @endforeach
 
                 @foreach($oldEvent as $old)
-                <div class="wow slideInUp column-event" data-wow-delay="{{ $delay.'s' }}">
+                <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
                     <?php
                     $color = mt_rand(0, 4);
                     echo "<h3 class=\"event-title bg" . $color . "\">
@@ -294,11 +294,11 @@
         <div id="Committee" class="bg-ash">
             <p class="heading-control"> Committee <a href="{{ route('committee') }}" class="btnControl"> Go To Control Page &roarr; </a> </p>
 
-            <div class="row-member">
+            <div class="row-flex">
                 @php ($delay = 0.0)
                 @foreach($topMember as $member)
-                <div class="wow slideInUp column-member" data-wow-delay="{{ $delay.'s' }}">
-                    <img src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
+                <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
+                    <img class="img-member" src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                     <div class="info-member">
                         <h2>{{ $member->name }}</h2>
                         <h3>{{ $member->role }}</h3>
@@ -313,8 +313,8 @@
                 @endforeach
 
                 @foreach($others as $member)
-                <div class="wow slideInUp column-member" data-wow-delay="{{ $delay.'s' }}">
-                    <img src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
+                <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
+                    <img class="img-member"  src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                     <div class="info-member">
                         <h2>{{ $member->name }}</h2>
                         <h3>{{ $member->role }}</h3>

@@ -19,10 +19,10 @@
     <h3>All Events</h3>
 
     <div class="sub-content">
-        <div class="row-event">
+        <div class="row-flex">
             @php ($delay = 0.0)
             @foreach($new as $new)
-            <div class="wow slideInUp column-event" data-wow-delay="{{ $delay.'s' }}">
+            <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
                 <?php
                 $color = mt_rand(0, 4);
                 echo "<h3 class=\"event-title icon-new bg" . $color . "\">
@@ -80,7 +80,7 @@
             @endforeach
 
             @foreach($old as $old)
-            <div class="wow slideInUp column-event" data-wow-delay="{{ $delay.'s' }}">
+            <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
                 <?php
                 $color = mt_rand(0, 4);
                 echo "<h3 class=\"event-title bg" . $color . "\">

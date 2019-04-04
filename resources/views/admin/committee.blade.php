@@ -41,6 +41,7 @@
                 </tbody>
             </table>
         </div>
+        <hr style="margin-top: 15px; width: 50%">
     </div>
 
     <div class="form-popup form-role" id="RoleForm">
@@ -68,15 +69,31 @@
         </form>
     </div>
 
-    <a href="{{ route('addmember') }}" class="btnAddItem icon-plus"> Add Member </a>
+    <a href="{{ route('addmember') }}" class="btnAddItem icon-plus" style="margin-top: -20px"> Add Member </a>
     <h3>Committee Members</h3>
 
-    <div class="sub-content">
-        <div class="row-member">
+    <div class="sub-content">    
+        <div class="selector">
+            <p>Select from working period</p>
+            <select id="Period-Select" class="select-period">
+                @php
+                $start = 2017;
+                $now = new DateTime();
+                $end = $now->format('Y');
+                @endphp
+                @for($i = $end; $i >= $start; $i--)
+                <option value="{{ $i }}">
+                    {{ $i }}
+                </option>
+                @endfor
+            </select>
+        </div>
+
+        <div class="row-flex">
             @php ($delay = 0.0)
             @foreach($topMember as $member)
-            <div class="wow slideInUp column-member" data-wow-delay="{{ $delay.'s' }}">
-                <img src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
+            <div class="wow slideInUp column-300 column-member" data-wow-delay="{{ $delay.'s' }}" id="{{ $member->session }}">
+                <img class="img-member" src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                 <div class="info-member">
                     <h2>{{ $member->name }}</h2>
                     <h3>{{ $member->role }}</h3>
@@ -94,8 +111,8 @@
             @endforeach
 
             @foreach($others as $member)
-            <div class="wow slideInUp column-member" data-wow-delay="{{ $delay.'s' }}">
-                <img src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
+            <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
+                <img class="img-member" src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                 <div class="info-member">
                     <h2>{{ $member->name }}</h2>
                     <h3>{{ $member->role }}</h3>

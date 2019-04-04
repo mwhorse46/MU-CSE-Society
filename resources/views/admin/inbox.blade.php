@@ -21,9 +21,10 @@
     <div class="sub-content">
         <table class="tbl-message">
             <tbody>
+                @php( $delay = 0.1 )
                 @foreach($messages as $message)
                 <tr>
-                    <td>
+                    <td class="wow slideInRight" data-wow-delay="{{ $delay.'s' }}">
                         <h3 class="table-data-head message-sender"> {{ $message->name }} </h3>
                         <h3 class="table-data-head message-delete">
                             <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')">
@@ -36,6 +37,7 @@
                         {{ $message->message }}
                     </td>
                 </tr>
+                @php( $delay += 0.1 )
                 @endforeach
             </tbody>
         </table>

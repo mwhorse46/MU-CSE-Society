@@ -46,7 +46,6 @@ html, body {
 }
 
 /* buttons & icons */
-
 .btnClose {
     position: absolute;
     top: 2vh;
@@ -284,8 +283,34 @@ html, body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-
 /* end icons & buttons */
+
+/* input form */
+input[type=text], input[type=email], input[type=file], input[type=time], input[type=number], textarea, select {
+    font-size: 16px;
+    width: 100%;
+    padding: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.txtAreaLarge {
+    height: 150px;
+    resize: vertical;
+}
+
+.td-left {
+    font-size: 18px;
+    text-align: left;
+    padding: 0;
+    width: 15%;
+}
+/* end input form */
 
 .side-bar {
     height: 100%;
@@ -369,7 +394,6 @@ html, body {
 }
 
 /* adminHome nav-bar */
-
 .left-menu {
     float: left;
     width: 60%;
@@ -406,7 +430,6 @@ html, body {
     align-items: center;
     justify-content: center;
 }
-
 /* end adminHome nav-bar */
 
 .blank {
@@ -420,7 +443,6 @@ html, body {
 }
 
 /* master nav bar*/
-
 .nav-bar-master {
     position: fixed;
     padding-top: 0;
@@ -526,11 +548,9 @@ html, body {
         width: 65%;
     }
 }
-
 /* end master nav bar*/
 
 /* main sections */
-
 .content {
     width: 100%;
     margin: 0;
@@ -587,38 +607,53 @@ html, body {
     }
 }
 
-.row-odd-news {
+.row-flex {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
     text-align: justify;
-    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.row-flex::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row-flex h2, .row-flex h5, .row-flex h2, .row-flex h5 {
+    margin: 0;
+}
+
+.column-300 {
+    float: left;
+    text-align: center;
+    align-self: center;
+    align-content: center;
+    width: 300px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 20px rgb(180, 178, 178);
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
 .row-even-news {
-    /*background-color: rgb(238, 153, 96);*/
     background-color: rgb(235, 231, 229);
-    text-align: justify;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
-.row-even-news::after, .row-odd-news::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.row-even-news h2, .row-even-news h5, .row-odd-news h2, .row-odd-news h5 {
-    margin: 0;
 }
 
 .news-image {
     float: left;
     width: 40%;
     padding: 20px;
-    margin: auto auto;
+    margin: 0 auto;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -643,12 +678,12 @@ html, body {
 }
 
 @media screen and (max-width: 800px) {
-    .news-image, .news-news {
-        width: 100%;
-    }
-    .row-even-news, .row-odd-news {
+    .row-flex {
         display: flex;
         flex-direction: column;
+    }
+    .news-image, .news-news {
+        width: 100%;
     }
     .news-image {
         order: -1;
@@ -699,33 +734,6 @@ html, body {
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: flex-end;
-}
-
-.row-event {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.row-event::after {
-    clear: both;
-    display: table;
-    content: "";
-}
-
-.column-event {
-    float: left;
-    width: 300px;
-    margin: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    align-self: center;
-    box-shadow: 2px 2px 20px rgb(180, 178, 178);
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 .icon-new {
@@ -803,36 +811,10 @@ html, body {
     transition: all 0.5s 0s;
 }
 
-.row-member {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.row-member::after {
-    clear: both;
-    display: table;
-    content: "";
-}
-
-.column-member {
-    float: left;
-    width: 350px;
-    margin: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    align-self: center;
-    box-shadow: 2px 2px 20px rgb(180, 178, 178);
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
-.column-member img{
+.img-member {
     margin: 10px auto;
     width: 90px;
+    height: 90px;
     border: #4095C9 3px solid;
     border-radius: 50%;
     box-shadow: 2px 2px 8px rgb(180, 178, 178);
@@ -857,7 +839,6 @@ html, body {
 }
 
 /* data table */
-
 .table-data-head {
     margin: 0;
     padding: 0;
@@ -947,7 +928,6 @@ html, body {
     width: 21px;
     height: 21px;
 }
-
 /* end data table */
 
 .adrs {
@@ -986,40 +966,9 @@ html, body {
         width: 100%;
     }
 }
-
 /* end main sections */
 
-/* input form */
-
-input[type=text], input[type=email], input[type=file], input[type=time], input[type=number], textarea, select {
-    font-size: 16px;
-    width: 100%;
-    padding: 6px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
-.txtAreaLarge {
-    height: 150px;
-    resize: vertical;
-}
-
-.td-left {
-    font-size: 18px;
-    text-align: left;
-    padding: 0;
-    width: 15%;
-}
-
-/* end input form */
-
 /* alert */
-
 .alert {
     width: 60%;
     text-align: center;
@@ -1041,7 +990,6 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     background-color: #f2dede;
     border: #d4b2b8 1px solid;
 }
-
 /* end alert */
 
 .footer {
@@ -1054,7 +1002,6 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
 }
 
 /* backgrounds */
-
 .bg-sky {
     background: #4095C9;
 }
@@ -1096,5 +1043,4 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
 }
-
 /* end backgrounds */

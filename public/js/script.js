@@ -111,3 +111,15 @@ function toggle() {
         toggle.className = toggle.className.replace(upClass, downClass);
     }
 }
+
+//show or hide members according to selected period
+$(document).ready(function () {
+    $(".column-member").hide();
+    $("#2019").show();
+
+    //listen to dropdown for change
+    $("#Period-Select").change(function () {
+        $(".column-member").hide();
+        $('#' + $(this).val()).show();
+    });
+});

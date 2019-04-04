@@ -60,7 +60,20 @@
                     </tr>
                     <tr>
                         <td class="td-left"> Period </td>
-                        <td> <input type="text" name="period" required placeholder="Working Period" /> </td>
+                        @php
+                        $start = 2017;
+                        $now = new DateTime();
+                        $end = $now->format('Y');
+                        @endphp
+                        <td>
+                            <select name="period">
+                                @for($i = $start; $i <= $end; $i++)
+                                <option value="{{ $i }}">
+                                    {{ $i }}
+                                </option>
+                                @endfor
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td class="td-left"> Works </td>
@@ -114,7 +127,20 @@
                     </tr>
                     <tr>
                         <td class="td-left"> Period </td>
-                        <td> <input type="text" name="period" required placeholder="Working Period" value="{{ $member->session }}" /> </td>
+                        @php
+                        $start = 2017;
+                        $now = new DateTime();
+                        $end = $now->format('Y');
+                        @endphp
+                        <td>
+                            <select name="period">
+                                @for($i = $start; $i <= $end; $i++)
+                                <option value="{{ $i }}" {{ $member->session == $i ? "selected" : "" }}>
+                                    {{ $i }}
+                                </option>
+                                @endfor
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td class="td-left"> Works </td>
