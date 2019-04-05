@@ -132,6 +132,16 @@ class EventController extends Controller
     {
         $id = $request->get('id');
         $event = Event::find($id);
+
+        // deleting imgage
+        $path = dirname(__FILE__) . "/../../../" . 'public/images/' . $event->image;
+        if ( is_Writable($path) ) {
+            unlink($path);
+        } else {
+            return redirect('/admin/events')->with('error', 'Something Went Wrong.');
+        }
+        // end of image delete
+        
         $event->delete();
         return redirect('/admin/events')->with('status', 'Event Deleted Successfully.');
     }

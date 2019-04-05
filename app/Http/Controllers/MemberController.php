@@ -115,6 +115,16 @@ class MemberController extends Controller
     {
         $id = $request->get('id');
         $member = Member::find($id);
+
+        // deleting imgage
+        $path = dirname(__FILE__) . "/../../../" . 'public/images/' . $member->image;
+        if ( is_Writable($path) ) {
+            unlink($path);
+        } else {
+            return redirect('/admin/committee')->with('error', 'Something Went Wrong.');
+        }
+        // end of image delete
+        
         $member->delete();
         return redirect('/admin/committee')->with('status', 'Member Deleted Successfully.');
     }

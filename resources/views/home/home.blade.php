@@ -77,7 +77,7 @@
     </div>
 
     <div class="block-center position-ref content">
-        <div id="News">
+        <div id="News" class="sub-content">
             <p class="heading"> News </p>
             <?php
             $cnt = 1;
@@ -165,11 +165,13 @@
             ?>
         </div>
 
-        <div id="Events" class="bg-ash">
+        <div id="Events" class="bg-ash sub-content">
             <p class="heading"> Events </p>
 
             <div class="row-flex">
-                @php ($delay = 0.0)
+                @php
+                $delay = 0.0
+                @endphp
                 @foreach($newEvent as $new)
                 <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
                     <?php
@@ -222,7 +224,9 @@
                     </h5>
                     @endif
                 </div>
-                @php ($delay = $delay + 0.15)
+                @php
+                $delay = $delay + 0.15
+                @endphp
                 @endforeach
 
                 @foreach($oldEvent as $old)
@@ -276,12 +280,14 @@
                     </h5>
                     @endif
                 </div>
-                @php ($delay = $delay + 0.15)
+                @php
+                $delay = $delay + 0.15
+                @endphp
                 @endforeach
             </div>
         </div>
 
-        <div id="Gallery">
+        <div id="Gallery" class="sub-content">
             <p class="heading"> Gallery </p>
 
             <p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec venenatis nisi. Vivamus dolor libero, maximus eget egestas in, feugiat at odio. In vehicula lorem ut nisl laoreet, vitae facilisis libero dictum. Ut id eros nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam arcu sem, viverra eget est a, faucibus pulvinar massa. Integer sagittis finibus nisl, ut tempor tellus. Quisque vehicula justo convallis, pulvinar erat vitae, eleifend quam. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id egestas mauris. Vivamus a lorem blandit, congue risus egestas, eleifend justo. Nam ullamcorper tortor eros.
@@ -289,14 +295,29 @@
                 Proin elementum vestibulum felis, quis vehicula nibh egestas non. Nullam elementum nisl nunc, nec ultrices massa tincidunt ac. Donec at libero at ipsum faucibus tincidunt. Vestibulum non consequat orci, malesuada vehicula magna. Proin eget nulla volutpat erat condimentum tempor eget id libero. Ut et pulvinar augue. Phasellus mollis libero at nulla blandit, non tincidunt tortor ultricies. Curabitur risus sem, ornare sit amet augue vel, bibendum lobortis nulla. Proin sit amet urna massa. Nullam vel mi at nisi convallis feugiat. Donec a mollis massa.</p>
         </div>
 
-        <div id="Committee" class="bg-ash">
+        <div id="Committee" class="bg-ash sub-content">
             <p class="heading"> Committee </p>
-
+   
+            <div class="selector">
+                <p>Select from working period :</p>
+                <select id="Period-Select" class="select-period">
+                    @php
+                    $start = 2017;
+                    $now = new DateTime();
+                    $end = $now->format('Y');
+                    @endphp
+                    @for($i = $end; $i >= $start; $i--)
+                    <option value="{{ $i }}">
+                        {{ $i }}
+                    </option>
+                    @endfor
+                </select>
+            </div>
             
             <div class="row-flex">
                 @php ($delay = 0.0)
                 @foreach($topMember as $member)
-                <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
+                <div class="wow slideInUp column-300 column-member" data-wow-delay="{{ $delay.'s' }}" id="{{ $member->session }}">
                     <img class="img-member" src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                     <div class="info-member">
                         <h2>{{ $member->name }}</h2>
@@ -312,7 +333,7 @@
                 @endforeach
 
                 @foreach($others as $member)
-                <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
+                <div class="wow slideInUp column-300 column-member" data-wow-delay="{{ $delay.'s' }}" id="{{ $member->session }}">
                     <img class="img-member" src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                     <div class="info-member">
                         <h2>{{ $member->name }}</h2>
@@ -329,7 +350,7 @@
             </div>
         </div>
 
-        <div id="About">
+        <div id="About" class="sub-content">
             <p class="heading"> About </p>
 
             <p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec venenatis nisi. Vivamus dolor libero, maximus eget egestas in, feugiat at odio. In vehicula lorem ut nisl laoreet, vitae facilisis libero dictum. Ut id eros nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam arcu sem, viverra eget est a, faucibus pulvinar massa. Integer sagittis finibus nisl, ut tempor tellus. Quisque vehicula justo convallis, pulvinar erat vitae, eleifend quam. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id egestas mauris. Vivamus a lorem blandit, congue risus egestas, eleifend justo. Nam ullamcorper tortor eros.

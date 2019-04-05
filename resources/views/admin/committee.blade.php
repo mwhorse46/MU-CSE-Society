@@ -16,6 +16,12 @@
     </div>
     @endif
 
+    @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
+
     <div class="sub-content">
         <button class="collapsible" onclick="toggle()">
             <div class="icon-drop-down toggle rotate-down">&nbsp;</div>&nbsp;&nbsp;<strong>Member's Roles</strong>
@@ -70,11 +76,11 @@
     </div>
 
     <a href="{{ route('addmember') }}" class="btnAddItem icon-plus" style="margin-top: -20px"> Add Member </a>
-    <h3>Committee Members</h3>
+    <h3 style="margin-bottom: 0px">Committee Members</h3>
 
     <div class="sub-content">    
         <div class="selector">
-            <p>Select from working period</p>
+            <p>Select from working period :</p>
             <select id="Period-Select" class="select-period">
                 @php
                 $start = 2017;
@@ -111,7 +117,7 @@
             @endforeach
 
             @foreach($others as $member)
-            <div class="wow slideInUp column-300" data-wow-delay="{{ $delay.'s' }}">
+            <div class="wow slideInUp column-300 column-member" data-wow-delay="{{ $delay.'s' }}" id="{{ $member->session }}">
                 <img class="img-member" src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                 <div class="info-member">
                     <h2>{{ $member->name }}</h2>

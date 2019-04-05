@@ -109,6 +109,16 @@ class NewsController extends Controller
     {
         $id = $request->get('id');
         $news = News::find($id);
+
+        // deleting imgage
+        $path = dirname(__FILE__) . "/../../../" . 'public/images/' . $news->image;
+        if ( is_Writable($path) ) {
+            unlink($path);
+        } else {
+            return redirect('/admin/news')->with('error', 'Something Went Wrong.');
+        }
+        // end of image delete
+        
         $news->delete();
         return redirect('/admin/news')->with('status', 'News Deleted Successfully.');
     }

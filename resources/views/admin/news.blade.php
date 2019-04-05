@@ -15,6 +15,13 @@
         {{ session('status') }}
     </div>
     @endif
+
+    @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
+
     <a href="{{ route('addnews') }}" class="btnAddItem icon-plus"> Add News </a>
     <h3>All News</h3>
 
