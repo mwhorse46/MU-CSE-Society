@@ -24,8 +24,6 @@ Route::get('/admin/home', 'AdminController@index');
 Route::get('/admin/inbox', 'AdminController@inbox')->name('inbox');
 Route::get('admin/deleteMessage','AdminController@deleteMsg')->name('deletemsg');
 
-Route::get('/admin/gallery', 'AdminController@gallery')->name('gallery');
-
 //News Routes
 Route::get('/admin/news', 'NewsController@index')->name('news');
 Route::get('/admin/addNews','NewsController@addForm')->name('addnews');
@@ -52,3 +50,10 @@ Route::get('/admin/deleteMember','MemberController@deleteMember')->name('deletem
 Route::POST('/admin/insertRole','MemberController@insertRole')->name('insertrole');
 Route::POST('admin/updateRole','MemberController@updateRole')->name('updaterole');
 Route::get('admin/deleteRole','MemberController@deleteRole')->name('deleterole');
+
+//Gallery Routes
+Route::get('/admin/gallery', 'GalleryController@index')->name('gallery');
+Route::get('/admin/gallery/album', 'GalleryController@goToAlbum')->name('album');
+Route::POST('/admin/insertAlbum','GalleryController@insertAlbum')->name('insertalbum');
+Route::POST('admin/updateAlbum','GalleryController@updateAlbum')->name('updatealbum');
+Route::get('admin/deleteAlbum','GalleryController@deleteAlbum')->name('deletealbum');

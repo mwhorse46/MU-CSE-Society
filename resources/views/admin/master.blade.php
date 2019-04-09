@@ -19,11 +19,15 @@
 
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js "></script>
-
+    
     <!-- Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:100,600">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Open+Sans:400,700">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+    
+    <!-- lightbox gallery -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/lightbox.min.css') }}">
+    <script src="{{ asset('js/lightbox.min.js') }}"></script>
 </head>
 
 <body>
@@ -65,7 +69,7 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            autoclose: true    
+            autoclose: true
         });
     </script>
     <!-- end script datepickr -->
@@ -79,4 +83,4 @@
     <!-- end wow animation -->
 </body>
 
-</html> 
+</html>

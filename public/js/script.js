@@ -61,7 +61,7 @@ $('.cntct').click(function (e) {
 });
 
 
-//function for opening pop-up Role form
+//function for opening pop-up Role Add form
 function openRoleAddForm() {
     document.getElementById("ROLE").value = "";
     document.getElementById("RANK").value = "";
@@ -70,7 +70,7 @@ function openRoleAddForm() {
     document.getElementById("RoleForm").style.display = "block";
 }
 
-//function for opening pop-up Role form
+//function for opening pop-up Role Edit form
 function openRoleEditForm(id, role, rank) {
     document.getElementById("ID").value = id;
     document.getElementById("ROLE").value = role;
@@ -80,9 +80,31 @@ function openRoleEditForm(id, role, rank) {
     document.getElementById("RoleForm").style.display = "block";
 }
 
-//function for opening pop-up Role form
+//function for closing pop-up Role form
 function closeRoleForm() {
     document.getElementById("RoleForm").style.display = "none";
+}
+
+//function for opening pop-up Album Add form
+function openAlbumAddForm() {
+    document.getElementById("albumName").value = "";
+    document.getElementById("BtnAdd").value = "Create";
+    document.albumForm.action = "/admin/insertAlbum";
+    document.getElementById("AlbumForm").style.display = "block";
+}
+
+//function for opening pop-up Album Edit form
+function openAlbumEditForm(id, name) {
+    document.getElementById("ID").value = id;
+    document.getElementById("albumName").value = name;
+    document.getElementById("BtnAdd").value = "Update";
+    document.albumForm.action = "/admin/updateAlbum";
+    document.getElementById("AlbumForm").style.display = "block";
+}
+
+//function for closing pop-up Album form
+function closeAlbumForm() {
+    document.getElementById("AlbumForm").style.display = "none";
 }
 
 //collapsible function
@@ -115,11 +137,11 @@ function toggle() {
 //show or hide members according to selected period
 $(document).ready(function () {
     $(".column-member").hide();
-    $("#2019").show();
+    $(".2019").show();
 
     //listen to dropdown for change
     $("#Period-Select").change(function () {
         $(".column-member").hide();
-        $('#' + $(this).val()).show();
+        $('.' + $(this).val()).show();
     });
 });

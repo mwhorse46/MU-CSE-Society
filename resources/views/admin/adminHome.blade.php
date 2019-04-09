@@ -319,7 +319,7 @@
             <div class="row-flex">
                 @php ($delay = 0.0)
                 @foreach($topMember as $member)
-                <div class="wow slideInUp column-300 column-member" data-wow-delay="{{ $delay.'s' }}" id="{{ $member->session }}">
+                <div class="wow slideInUp column-300 column-member {{ $member->session }}" data-wow-delay="{{ $delay.'s' }}">
                     <img class="img-member" src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                     <div class="info-member">
                         <h2>{{ $member->name }}</h2>
@@ -335,7 +335,7 @@
                 @endforeach
 
                 @foreach($others as $member)
-                <div class="wow slideInUp column-300 column-member" data-wow-delay="{{ $delay.'s' }}" id="{{ $member->session }}">
+                <div class="wow slideInUp column-300 column-member {{ $member->session }}" data-wow-delay="{{ $delay.'s' }}">
                     <img class="img-member"  src="{{ asset( 'images/'.$member->image ) }}" alt="{{ $member->image }}">
                     <div class="info-member">
                         <h2>{{ $member->name }}</h2>

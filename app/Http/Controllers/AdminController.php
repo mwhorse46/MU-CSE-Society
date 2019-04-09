@@ -11,17 +11,11 @@ use App\Member;
 
 class AdminController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $news = News::where('pinned', '=', false)->orderBy('date', 'DESC')->get();
@@ -45,12 +39,6 @@ class AdminController extends Controller
         $title = "Inbox";
         $messages = Message::orderBy('created_at', 'DESC')->get();
         return view('admin.inbox', ['title' => $title, 'messages' => $messages]);
-    }
-
-    public function gallery()
-    {
-        $title = "Gallery";
-        return view('admin.gallery', ['title' => $title]);
     }
 
     public function deleteMsg(Request $request)

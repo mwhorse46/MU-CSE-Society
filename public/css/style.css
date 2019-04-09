@@ -696,7 +696,7 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
 
 .event-title {
     margin: 0;
-    padding: 10px 10px;
+    padding: 20px 10px;
     color: #FFFFFF;
 }
 
@@ -742,9 +742,9 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
 
 .icon-new {
     background-image: url("../img/new1.png");
-    background-size: 32px;
+    background-size: 48px;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: top right;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -769,6 +769,14 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     top: 20%;
     width: 450px;
     margin-left: -225px;
+    text-align: center;
+}
+
+.form-album {
+    left: 50%;
+    top: 40%;
+    width: 500px;
+    margin-left: -250px;
     text-align: center;
 }
 
@@ -868,6 +876,78 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     font-size: 16px;
     color: #FFFFFF;
     background-color: #4095C9;
+}
+
+.column-add {
+    font-size: 24px;
+    text-align: center;
+    float: left;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 300px;
+    min-height:250px;
+    margin: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color:rgb(243, 239, 239);
+    box-shadow: 2px 2px 20px rgb(180, 178, 178);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.column-album {
+    float: left;
+    text-align: center;
+    align-content: center;
+    width: 300px;
+    margin: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 20px rgb(180, 178, 178);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.column-album img {
+    width: 300px;
+    height: 250px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+}
+
+.column-album:hover, .column-add:hover {
+    filter: grayscale(10%);
+    transform: scale(1.05);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.album-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.gallery-header {
+    color: #636b6f;
+    font-size: 24px;
+    text-align: left;
+    padding: 20px 25px;
+    background-color: rgb(235, 235, 235);
+}
+
+.gallery-header a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.img-caption {
+    padding: 20px;
 }
 
 /* data table */
