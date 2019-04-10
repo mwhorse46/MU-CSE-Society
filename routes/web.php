@@ -54,6 +54,9 @@ Route::get('admin/deleteRole','MemberController@deleteRole')->name('deleterole')
 //Gallery Routes
 Route::get('/admin/gallery', 'GalleryController@index')->name('gallery');
 Route::get('/admin/gallery/album', 'GalleryController@goToAlbum')->name('album');
+Route::POST('/admin/gallery/insertPhoto','GalleryController@insertPhoto')->name('insertphoto');
+Route::POST('admin/gallery/updatePhoto','GalleryController@updatePhoto')->name('updatephoto');
+Route::get('admin/gallery/deletePhoto','GalleryController@deletePhoto')->name('deletephoto');
 Route::POST('/admin/insertAlbum','GalleryController@insertAlbum')->name('insertalbum');
 Route::POST('admin/updateAlbum','GalleryController@updateAlbum')->name('updatealbum');
 Route::get('admin/deleteAlbum','GalleryController@deleteAlbum')->name('deletealbum');

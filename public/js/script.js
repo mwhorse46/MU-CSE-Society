@@ -107,6 +107,33 @@ function closeAlbumForm() {
     document.getElementById("AlbumForm").style.display = "none";
 }
 
+//function for opening pop-up Photos Add form
+function openPhotoAddForm() {
+    document.getElementById("Image").value = "";
+    document.getElementById("Caption").value = "";
+    document.getElementById("BtnAdd").value = "Save";
+    document.photosForm.action = "/admin/gallery/insertPhoto";
+    document.getElementById("PhotosForm").style.display = "block";
+}
+
+//function for opening pop-up Photos Edit form
+function openPhotoEditForm(id, caption) {
+    document.getElementById("IDC").value = id;
+    document.getElementById("CaptionC").value = caption;
+    document.photosFormC.action = "/admin/gallery/updatePhoto";
+    document.getElementById("PhotosFormC").style.display = "block";
+}
+
+//function for closing pop-up Photos form
+function closePhotosForm() {
+    document.getElementById("PhotosForm").style.display = "none";
+}
+
+//function for closing pop-up Photos Caption form
+function closePhotosFormC() {
+    document.getElementById("PhotosFormC").style.display = "none";
+}
+
 //collapsible function
 var coll = document.getElementsByClassName("collapsible");
 var i;

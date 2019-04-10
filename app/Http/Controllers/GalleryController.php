@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Album;
+use App\Gallery;
 
 class GalleryController extends Controller
 {
@@ -27,8 +28,8 @@ class GalleryController extends Controller
         $id = $request->get('id');
         $album = Album::find($id);
         $albumName = $album->albumName;
-        $photos = DB::table('gallery')->join('albums', 'albums.id', '=', 'gallery.albumId')->where('albums.id', '=', $id)->get(['gallery.*']);
-        return view('admin.album', ['title' => $title, 'photos' => $photos, 'albumName' => $albumName]);
+        $photos = DB::table('galleries')->join('albums', 'albums.id', '=', 'galleries.albumId')->where('albums.id', '=', $id)->get(['galleries.*']);
+        return view('admin.album', ['title' => $title, 'photos' => $photos, 'albumName' => $albumName, 'albumId' => $id]);
     }
 
     public function insertAlbum(Request $request)
@@ -50,9 +51,65 @@ class GalleryController extends Controller
         return redirect('/admin/gallery')->with('status', 'Album Updated Successfully.');
     }
 
-    public function deleteAlbum()
+    public function deleteAlbum(Request $request)
     {
-        $title = "Gallery";
-        return view('admin.gallery', ['title' => $title]);
+        $id = $request->get('id');
+        $album = Album::find($id);
+        $album->delete();
+        return redirect('/admin/gallery')->with('status', 'Album Deleted Successfully.');
+    }
+
+    public function insertPhoto(Request $request)
+    {
+        $this->validate($request, [
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $image = null;
+        if ($request->hasFile('image')) {
+            $imageName = $request->file('image');
+            $extension = $imageName->getClientOriginalExtension();
+            $image = date('Y-m-d') . '-' . str_random(10) . '.' . $extension;
+            $imageName->move(public_path('images/'), $image);
+        }
+
+        $id = $request->input('albumId');
+        $photo = new Gallery();
+        $photo->albumId = $id;
+        $photo->image = $image;
+        $photo->caption = $request->input('caption');
+
+        $photo->save();
+        return redirect('/admin/gallery/album?id='.$id)->with('status', 'Photo Added Successfully.');
+    }
+
+    public function updatePhoto(Request $request)
+    {
+        $id = $request->input('id');
+        $albumId = $request->input('albumId');
+        $photo = Gallery::find($id);
+        $photo->caption = $request->input('caption');
+
+        $photo->save();
+        return redirect('/admin/gallery/album?id='.$albumId)->with('status', 'Photo Updated Successfully.');
+    }
+
+    public function deletePhoto(Request $request)
+    {
+        $id = $request->input('id');
+        $albumId = $request->input('albumId');
+        $photo = Gallery::find($id);
+
+        // deleting imgage
+        $path = dirname(__FILE__) . "/../../../" . 'public/images/' . $photo->image;
+        if ( is_Writable($path) ) {
+            unlink($path);
+        } else {
+            return redirect('/admin/gallery/album?id='.$albumId)->with('error', 'Something Went Wrong.');
+        }
+        // end of image delete
+        
+        $photo->delete();
+        return redirect('/admin/gallery/album?id='.$albumId)->with('status', 'Photo Deleted Successfully.');
     }
 }

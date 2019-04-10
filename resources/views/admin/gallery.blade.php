@@ -48,12 +48,21 @@
     <div class="sub-content">
         <div class="row-flex">
             @foreach($albums as $album)
-            <a href="{{ asset('/admin/gallery/album?id='.$album->id) }}" class="album-link">
-                <div class="column-album">
-                    <img src="{{ asset('images/'.$album->coverImage) }}" alt="">
-                    <h3> {{$album->albumName}} </h3>
+            <div class="column-album-wrapper">
+                <div style="width:100%">
+                    <a href="{{ asset('/admin/gallery/album?id='.$album->id) }}" class="album-link">
+                        <div class="column-album">
+                            <img src="{{ asset('images/'.$album->coverImage) }}" alt="">
+                            <h3 style="margin:0; padding:10px; border-bottom:lightgray 1px solid"> {{$album->albumName}} </h3>
+                        </div>
+                    </a>
                 </div>
-            </a>
+
+                <div style="display: inline-flex; padding:5px 0;">
+                    <div class="icon-edit-colored" onclick="openAlbumEditForm({{$album->id}}, '{{$album->albumName}}')">&nbsp;</div>
+                    <a href="{{ asset('admin/deleteAlbum?id='.$album->id) }}" onclick="return confirm('Are you sure?')" class="icon-delete-filled"> &nbsp; </a>
+                </div>
+            </div>
             @endforeach
         </div>
     </div>
