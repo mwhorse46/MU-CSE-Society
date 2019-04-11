@@ -24,24 +24,26 @@
 
     <a onclick="openAlbumAddForm()" class="btnAddItem icon-plus"> Create New Album </a>
 
-    <div class="form-popup form-album" id="AlbumForm">
-        <form name="albumForm" method="POST" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <h3>Photo Album</h3>
-            <table width=100%>
-                <tbody>
-                    <tr>
-                        <input type="hidden" name="id" id="ID">
-                    </tr>
-                    <tr>
-                        <td class="td-left" style="width:25%"> Album Name: </td>
-                        <td><input type="text" placeholder="Album Name (MAX 30 Character)" name="albumName" id="albumName" maxlength="30" required></td>
-                    </tr>
-                </tbody>
-            </table>
-            <input type="submit" class="btnCreate icon-save" id="BtnAdd" value="Create">
-            <button type="button" class="btnDelete icon-cancel" onclick="closeAlbumForm()">Cancel</button>
-        </form>
+    <div class="popup-overlay" id="Popup-Overlay">
+        <div class="form-popup form-album" id="AlbumForm">
+            <form name="albumForm" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <h3>Photo Album</h3>
+                <table width=100%>
+                    <tbody>
+                        <tr>
+                            <input type="hidden" name="id" id="ID">
+                        </tr>
+                        <tr>
+                            <td class="td-left" style="width:25%"> Album Name: </td>
+                            <td><input type="text" placeholder="Album Name (MAX 30 Character)" name="albumName" id="albumName" maxlength="30" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="submit" class="btnCreate icon-save" id="BtnAdd" value="Create">
+                <button type="button" class="btnDelete icon-cancel" onclick="closeAlbumForm()">Cancel</button>
+            </form>
+        </div>
     </div>
 
     <h3>All Albums</h3>

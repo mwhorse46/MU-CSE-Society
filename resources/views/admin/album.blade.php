@@ -55,50 +55,54 @@
         </div>
     </div>
 
-    <div class="form-popup form-photos" id="PhotosForm">
-        <form name="photosForm" method="POST" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <h3>Picture</h3>
-            <table width=100%>
-                <tbody>
-                    <tr>
-                        <input type="hidden" name="id" id="ID">
-                        <input type="hidden" name="albumId" value="{{ $albumId }}">
-                    </tr>
-                    <tr id="FormImage">
-                        <td class="td-left" style="width:25%"> Photo: </td>
-                        <td><input type="file" name="image" id="Image" required></td>
-                    </tr>
-                    <tr>
-                        <td class="td-left" style="width:25%"> Photo Caption: </td>
-                        <td><input type="text" placeholder="Photo Caption (MAX 30 Character)" name="caption" id="Caption" maxlength="30" required></td>
-                    </tr>
-                </tbody>
-            </table>
-            <input type="submit" class="btnCreate icon-save" id="BtnAdd" value="Save">
-            <button type="button" class="btnDelete icon-cancel" onclick="closePhotosForm()">Cancel</button>
-        </form>
+    <div class="popup-overlay" id="Popup-Overlay">
+        <div class="form-popup form-photos" id="PhotosForm">
+            <form name="photosForm" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <h3>Picture</h3>
+                <table width=100%>
+                    <tbody>
+                        <tr>
+                            <input type="hidden" name="id" id="ID">
+                            <input type="hidden" name="albumId" value="{{ $albumId }}">
+                        </tr>
+                        <tr id="FormImage">
+                            <td class="td-left" style="width:25%"> Photo: </td>
+                            <td><input type="file" name="image" id="Image" required></td>
+                        </tr>
+                        <tr>
+                            <td class="td-left" style="width:25%"> Photo Caption: </td>
+                            <td><input type="text" placeholder="Photo Caption (MAX 30 Character)" name="caption" id="Caption" maxlength="30" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="submit" class="btnCreate icon-save" id="BtnAdd" value="Save">
+                <button type="button" class="btnDelete icon-cancel" onclick="closePhotosForm()">Cancel</button>
+            </form>
+        </div>
     </div>
 
-    <div class="form-popup form-photos" id="PhotosFormC">
-        <form name="photosFormC" method="POST" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <h3>Picture</h3>
-            <table width=100%>
-                <tbody>
-                    <tr>
-                        <input type="hidden" name="id" id="IDC">
-                        <input type="hidden" name="albumId" value="{{ $albumId }}">
-                    </tr>
-                    <tr>
-                        <td class="td-left" style="width:25%"> Photo Caption: </td>
-                        <td><input type="text" placeholder="Photo Caption (MAX 30 Character)" name="caption" id="CaptionC" maxlength="30" required></td>
-                    </tr>
-                </tbody>
-            </table>
-            <input type="submit" class="btnCreate icon-save" value="Update">
-            <button type="button" class="btnDelete icon-cancel" onclick="closePhotosFormC()">Cancel</button>
-        </form>
+    <div class="popup-overlay" id="Popup-Overlay">
+        <div class="form-popup form-photos" id="PhotosFormC">
+            <form name="photosFormC" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <h3>Picture</h3>
+                <table width=100%>
+                    <tbody>
+                        <tr>
+                            <input type="hidden" name="id" id="IDC">
+                            <input type="hidden" name="albumId" value="{{ $albumId }}">
+                        </tr>
+                        <tr>
+                            <td class="td-left" style="width:25%"> Photo Caption: </td>
+                            <td><input type="text" placeholder="Photo Caption (MAX 30 Character)" name="caption" id="CaptionC" maxlength="30" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="submit" class="btnCreate icon-save" value="Update">
+                <button type="button" class="btnDelete icon-cancel" onclick="closePhotosFormC()">Cancel</button>
+            </form>
+        </div>
     </div>
 </div>
 @endsection

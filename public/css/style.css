@@ -782,6 +782,18 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     -webkit-box-sizing: border-box;
 }
 
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
 .form-popup {
     display: none;
     position: absolute;
@@ -791,6 +803,7 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
     background: rgb(238, 237, 237);
     z-index: 100;
+    transition: all 5s ease-in-out;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;

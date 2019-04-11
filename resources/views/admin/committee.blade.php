@@ -50,31 +50,6 @@
         <hr style="margin-top: 15px; width: 50%">
     </div>
 
-    <div class="form-popup form-role" id="RoleForm">
-        <form name="roleForm" method="POST" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <h3>Member Role</h3>
-            <table width=100%>
-                <tbody>
-                    <tr>
-                        <input type="hidden" name="id" id="ID">
-                    </tr>
-                    <tr>
-                        <td class="td-left"> Role* </td>
-                        <td><input type="text" placeholder="New Role" name="role" id="ROLE" maxlength="100" required></td>
-                    </tr>
-
-                    <tr>
-                        <td class="td-left"> Rank* </td>
-                        <td><input type="number" placeholder="Role Rank" name="rank" id="RANK" min="1" required></td>
-                    </tr>
-                </tbody>
-            </table>
-            <input type="submit" class="btnCreate" id="BtnAdd" value="Add">
-            <button type="button" class="btnDelete" onclick="closeRoleForm()">Cancel</button>
-        </form>
-    </div>
-
     <a href="{{ route('addmember') }}" class="btnAddItem icon-plus" style="margin-top: -20px"> Add Member </a>
     <h3 style="margin-bottom: 0px">Committee Members</h3>
 
@@ -137,6 +112,31 @@
         </div>
     </div>
 
+    <div class="popup-overlay" id="Popup-Overlay">
+        <div class="form-popup form-role" id="RoleForm">
+            <form name="roleForm" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <h3>Member Role</h3>
+                <table width=100%>
+                    <tbody>
+                        <tr>
+                            <input type="hidden" name="id" id="ID">
+                        </tr>
+                        <tr>
+                            <td class="td-left"> Role* </td>
+                            <td><input type="text" placeholder="New Role" name="role" id="ROLE" maxlength="100" required></td>
+                        </tr>
+                        <tr>
+                            <td class="td-left"> Rank* </td>
+                            <td><input type="number" placeholder="Role Rank" name="rank" id="RANK" min="1" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="submit" class="btnCreate" id="BtnAdd" value="Add">
+                <button type="button" class="btnDelete" onclick="closeRoleForm()">Cancel</button>
+            </form>
+        </div>
+    </div>
 
 </div>
 @endsection 

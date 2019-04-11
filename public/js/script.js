@@ -67,6 +67,8 @@ function openRoleAddForm() {
     document.getElementById("RANK").value = "";
     document.getElementById("BtnAdd").value = "Add";
     document.roleForm.action = "/admin/insertRole";
+    document.getElementById("Popup-Overlay").style.visibility = "visible";
+    document.getElementById("Popup-Overlay").style.opacity = 1;
     document.getElementById("RoleForm").style.display = "block";
 }
 
@@ -77,11 +79,15 @@ function openRoleEditForm(id, role, rank) {
     document.getElementById("RANK").value = rank;
     document.getElementById("BtnAdd").value = "Update";
     document.roleForm.action = "/admin/updateRole";
+    document.getElementById("Popup-Overlay").style.visibility = "visible";
+    document.getElementById("Popup-Overlay").style.opacity = 1;
     document.getElementById("RoleForm").style.display = "block";
 }
 
 //function for closing pop-up Role form
 function closeRoleForm() {
+    document.getElementById("Popup-Overlay").style.opacity = 0;
+    document.getElementById("Popup-Overlay").style.visibility = "hidden";
     document.getElementById("RoleForm").style.display = "none";
 }
 
@@ -90,6 +96,8 @@ function openAlbumAddForm() {
     document.getElementById("albumName").value = "";
     document.getElementById("BtnAdd").value = "Create";
     document.albumForm.action = "/admin/insertAlbum";
+    document.getElementById("Popup-Overlay").style.visibility = "visible";
+    document.getElementById("Popup-Overlay").style.opacity = 1;
     document.getElementById("AlbumForm").style.display = "block";
 }
 
@@ -99,11 +107,15 @@ function openAlbumEditForm(id, name) {
     document.getElementById("albumName").value = name;
     document.getElementById("BtnAdd").value = "Update";
     document.albumForm.action = "/admin/updateAlbum";
+    document.getElementById("Popup-Overlay").style.visibility = "visible";
+    document.getElementById("Popup-Overlay").style.opacity = 1;
     document.getElementById("AlbumForm").style.display = "block";
 }
 
 //function for closing pop-up Album form
 function closeAlbumForm() {
+    document.getElementById("Popup-Overlay").style.opacity = 0;
+    document.getElementById("Popup-Overlay").style.visibility = "hidden";
     document.getElementById("AlbumForm").style.display = "none";
 }
 
@@ -113,6 +125,8 @@ function openPhotoAddForm() {
     document.getElementById("Caption").value = "";
     document.getElementById("BtnAdd").value = "Save";
     document.photosForm.action = "/admin/gallery/insertPhoto";
+    document.getElementById("Popup-Overlay").style.visibility = "visible";
+    document.getElementById("Popup-Overlay").style.opacity = 1;
     document.getElementById("PhotosForm").style.display = "block";
 }
 
@@ -121,16 +135,22 @@ function openPhotoEditForm(id, caption) {
     document.getElementById("IDC").value = id;
     document.getElementById("CaptionC").value = caption;
     document.photosFormC.action = "/admin/gallery/updatePhoto";
+    document.getElementById("Popup-Overlay").style.visibility = "visible";
+    document.getElementById("Popup-Overlay").style.opacity = 1;
     document.getElementById("PhotosFormC").style.display = "block";
 }
 
 //function for closing pop-up Photos form
 function closePhotosForm() {
+    document.getElementById("Popup-Overlay").style.opacity = 0;
+    document.getElementById("Popup-Overlay").style.visibility = "hidden";
     document.getElementById("PhotosForm").style.display = "none";
 }
 
 //function for closing pop-up Photos Caption form
 function closePhotosFormC() {
+    document.getElementById("Popup-Overlay").style.opacity = 0;
+    document.getElementById("Popup-Overlay").style.visibility = "hidden";
     document.getElementById("PhotosFormC").style.display = "none";
 }
 
