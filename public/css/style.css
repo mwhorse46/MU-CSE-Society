@@ -689,6 +689,7 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     float: left;
     width: 40%;
     padding: 20px;
+    padding-bottom: 0;
     margin: 0 auto;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -704,6 +705,10 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     -webkit-box-sizing: border-box;
 }
 
+.news-news p {
+    margin-bottom: 0;
+}
+
 .news-news-full {
     float: left;
     width: 100%;
@@ -714,10 +719,6 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
 }
 
 @media screen and (max-width: 800px) {
-    .row-flex {
-        display: flex;
-        flex-direction: column;
-    }
     .news-image, .news-news {
         width: 100%;
     }
@@ -728,7 +729,7 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
 
 .event-title {
     margin: 0;
-    padding: 20px 10px;
+    padding: 20px 20px;
     color: #FFFFFF;
 }
 
@@ -895,6 +896,11 @@ input[type=text], input[type=email], input[type=file], input[type=time], input[t
     padding: 0;
     font-family: 'Quicksand', sans-serif;
     text-shadow: 2px 2px 10px rgb(180, 178, 178);
+}
+
+.info-member h6, .info-member h5 {
+    margin: 0;
+    padding: 0;
 }
 
 .works-member {

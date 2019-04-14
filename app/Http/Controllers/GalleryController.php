@@ -29,7 +29,8 @@ class GalleryController extends Controller
         $album = Album::find($id);
         $albumName = $album->albumName;
         $photos = DB::table('galleries')->join('albums', 'albums.id', '=', 'galleries.albumId')->where('albums.id', '=', $id)->get(['galleries.*']);
-        return view('admin.album', ['title' => $title, 'photos' => $photos, 'albumName' => $albumName, 'albumId' => $id]);
+        
+        return view('admin.albumControl', ['title' => $title, 'photos' => $photos, 'albumName' => $albumName, 'albumId' => $id]);
     }
 
     public function insertAlbum(Request $request)
@@ -80,6 +81,11 @@ class GalleryController extends Controller
         $photo->caption = $request->input('caption');
 
         $photo->save();
+
+        $album = Album::find($id);
+        $album->coverImage = $image;
+        $album->save();
+
         return redirect('/admin/gallery/album?id='.$id)->with('status', 'Photo Added Successfully.');
     }
 
@@ -97,8 +103,8 @@ class GalleryController extends Controller
     public function deletePhoto(Request $request)
     {
         $id = $request->input('id');
-        $albumId = $request->input('albumId');
         $photo = Gallery::find($id);
+        $albumId = $photo->albumId; 
 
         // deleting imgage
         $path = dirname(__FILE__) . "/../../../" . 'public/images/' . $photo->image;
@@ -110,6 +116,18 @@ class GalleryController extends Controller
         // end of image delete
         
         $photo->delete();
+
+        $cover = Gallery::where('albumId', '=', $albumId)
+        ->orderBy('created_at', 'DESC')->first();
+
+        $album = Album::find($albumId);
+        if($cover === null) {
+            $album->coverImage = "no-image-available.jpg";
+        } else {
+            $album->coverImage = $cover->image;
+        }
+        $album->save();
+
         return redirect('/admin/gallery/album?id='.$albumId)->with('status', 'Photo Deleted Successfully.');
     }
 }

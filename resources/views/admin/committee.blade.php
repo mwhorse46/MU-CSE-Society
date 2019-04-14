@@ -78,8 +78,8 @@
                 <div class="info-member">
                     <h2>{{ $member->name }}</h2>
                     <h3>{{ $member->role }}</h3>
-                    <h4>{{ $member->mail }}</h4>
-                    <h4>{{ $member->contact }}</h4>
+                    <h5>{{ $member->mail }}</h5>
+                    <h6>{{ $member->contact }}</h6>
                 </div>
                 <div class="works-member">
                     <strong>Works: </strong>{{ $member->work }}
@@ -97,8 +97,8 @@
                 <div class="info-member">
                     <h2>{{ $member->name }}</h2>
                     <h3>{{ $member->role }}</h3>
-                    <h4>{{ $member->mail }}</h4>
-                    <h4>{{ $member->contact }}</h4>
+                    <h5>{{ $member->mail }}</h5>
+                    <h6>{{ $member->contact }}</h6>
                 </div>
                 <div class="works-member">
                     <strong>Works: </strong>{{ $member->work }}

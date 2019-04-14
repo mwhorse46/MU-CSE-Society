@@ -8,6 +8,7 @@ use App\Message;
 use App\News;
 use App\Event;
 use App\Member;
+use App\Album;
 
 class AdminController extends Controller
 {
@@ -31,7 +32,21 @@ class AdminController extends Controller
         } else {
             $others = Member::where('name', '=', 'null');
         }
-        return view('admin.adminHome', ['news' => $news, 'pinned' => $pinned, 'newEvent' => $newEvent, 'oldEvent' => $oldEvent, 'topMember' => $topMember, 'others' => $others]);
+
+        $albums = Album::get();
+        return view('admin.adminHome', ['news' => $news, 'pinned' => $pinned, 'newEvent' => $newEvent, 'oldEvent' => $oldEvent, 'topMember' => $topMember, 'others' => $others, 'albums' => $albums]);
+    }
+
+    public function goToAlbum(Request $request)
+    {
+        $title = "Gallery";
+
+        $id = $request->get('id');
+        $album = Album::find($id);
+        $albumName = $album->albumName;
+        $photos = DB::table('galleries')->join('albums', 'albums.id', '=', 'galleries.albumId')->where('albums.id', '=', $id)->get(['galleries.*']);
+        
+        return view('admin.album', ['title' => $title, 'photos' => $photos, 'albumName' => $albumName, 'albumId' => $id]);
     }
 
     public function inbox()

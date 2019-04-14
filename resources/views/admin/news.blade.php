@@ -42,8 +42,8 @@
                         {{ $pinned->news }}
 
                         <br>
-                        <a href="{{ asset('admin/editNews?id='.$pinned->id) }}" class="btnCreate icon-edit"> Edit </a>
-                        <a href="{{ asset('admin/deleteNews?id='.$pinned->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
+                        <a href="{{ asset('/admin/editNews?id='.$pinned->id) }}" class="btnCreate icon-edit"> Edit </a>
+                        <a href="{{ asset('/admin/deleteNews?id='.$pinned->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
                     </td>
                 </tr>
                 @endforeach
@@ -61,8 +61,8 @@
                         {{ $news->news }}
 
                         <br>
-                        <a href="{{ asset('admin/editNews?id='.$news->id) }}" class="btnCreate icon-edit"> Edit </a>
-                        <a href="{{ asset('admin/deleteNews?id='.$news->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
+                        <a href="{{ asset('/admin/editNews?id='.$news->id) }}" class="btnCreate icon-edit"> Edit </a>
+                        <a href="{{ asset('/admin/deleteNews?id='.$news->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
                     </td>
                 </tr>
                 @endforeach

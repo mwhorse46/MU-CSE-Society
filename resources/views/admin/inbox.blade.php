@@ -27,7 +27,7 @@
                     <td class="wow slideInRight" data-wow-delay="{{ $delay.'s' }}">
                         <h3 class="table-data-head message-sender"> {{ $message->name }} </h3>
                         <h3 class="table-data-head message-delete">
-                            <a href="{{ asset('admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')">
+                            <a href="{{ asset('/admin/deleteMessage?id='.$message->id) }}" onclick="return confirm('Are you sure?')">
                                 <img src="{{ asset('img/delete1.png') }}" alt="delete">
                             </a>
                         </h3>

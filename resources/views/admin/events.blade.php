@@ -80,8 +80,8 @@
                 </h5>
                 @endif
 
-                <a href="{{ asset('admin/editEvent?id='.$new->id) }}" class="btnCreate icon-edit"> Edit </a>
-                <a href="{{ asset('admin/deleteEvent?id='.$new->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
+                <a href="{{ asset('/admin/editEvent?id='.$new->id) }}" class="btnCreate icon-edit"> Edit </a>
+                <a href="{{ asset('/admin/deleteEvent?id='.$new->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
             </div>
             @php ($delay = $delay + 0.15)
             @endforeach
@@ -137,8 +137,8 @@
                 </h5>
                 @endif
 
-                <a href="{{ asset('admin/editEvent?id='.$old->id) }}" class="btnCreate icon-edit"> Edit </a>
-                <a href="{{ asset('admin/deleteEvent?id='.$old->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
+                <a href="{{ asset('/admin/editEvent?id='.$old->id) }}" class="btnCreate icon-edit"> Edit </a>
+                <a href="{{ asset('/admin/deleteEvent?id='.$old->id) }}" onclick="return confirm('Are you sure?')" class="btnDelete icon-delete"> Delete </a>
             </div>
             @php ($delay = $delay + 0.15)
             @endforeach

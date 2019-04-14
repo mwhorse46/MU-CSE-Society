@@ -8,18 +8,6 @@ function closeSideBar() {
     document.getElementById("Side-bar").style.width = "0%";
 }
 
-//changing background opacity of top menu bar
-[red, green, blue] = [33, 40, 61];
-navBar = document.getElementById("Nav-bar");
-window.addEventListener('scroll', () => {
-    hh = document.documentElement.clientHeight;
-    bb = h * 0.3;
-    nav = h * 0.11;
-    p = Math.min(1.0, (window.scrollY || window.pageYOffset) / (bb - nav));
-    [r, g, b, o] = [red, green, blue, p];
-    navBar.style.background = `rgba(${r}, ${g}, ${b}, ${o})`;
-});
-
 //calculating screen height and nav bar height
 h = document.documentElement.clientHeight;
 nav = h * 0.11;
@@ -135,8 +123,8 @@ function openPhotoEditForm(id, caption) {
     document.getElementById("IDC").value = id;
     document.getElementById("CaptionC").value = caption;
     document.photosFormC.action = "/admin/gallery/updatePhoto";
-    document.getElementById("Popup-Overlay").style.visibility = "visible";
-    document.getElementById("Popup-Overlay").style.opacity = 1;
+    document.getElementById("Popup-OverlayC").style.visibility = "visible";
+    document.getElementById("Popup-OverlayC").style.opacity = 1;
     document.getElementById("PhotosFormC").style.display = "block";
 }
 
@@ -149,8 +137,8 @@ function closePhotosForm() {
 
 //function for closing pop-up Photos Caption form
 function closePhotosFormC() {
-    document.getElementById("Popup-Overlay").style.opacity = 0;
-    document.getElementById("Popup-Overlay").style.visibility = "hidden";
+    document.getElementById("Popup-OverlayC").style.opacity = 0;
+    document.getElementById("Popup-OverlayC").style.visibility = "hidden";
     document.getElementById("PhotosFormC").style.display = "none";
 }
 

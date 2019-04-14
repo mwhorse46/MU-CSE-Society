@@ -9,6 +9,7 @@ use App\Message;
 use App\News;
 use App\Event;
 use App\Member;
+use App\Album;
 
 class HomeController extends Controller
 {
@@ -25,17 +26,31 @@ class HomeController extends Controller
             $newEvent = Event::where('ended', '=', false)->orderBy('date', 'ASC')->get();
             $oldEvent = Event::where('ended', '=', true)->orderBy('date', 'ASC')->get();
 
-        $topMember = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(0)->take(3)->orderBy('rank', 'ASC')->get(['members.*', 'roles.role', 'roles.rank']);
-        $count = Member::count();
-        $limit = $count - 3;
-        if ($count > 3) {
-            $others = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(3)->take($limit)->orderBy('rank', 'ASC')->get(['members.*', 'roles.role', 'roles.rank']);
-        } else {
-            $others = Member::where('name', '=', 'null');
-        }
-            return view('home.home', ['news' => $news, 'pinned' => $pinned, 'newEvent' => $newEvent, 'oldEvent' => $oldEvent, 'topMember' => $topMember, 'others' => $others]);
+            $topMember = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(0)->take(3)->orderBy('rank', 'ASC')->get(['members.*', 'roles.role', 'roles.rank']);
+            $count = Member::count();
+            $limit = $count - 3;
+            if ($count > 3) {
+                $others = DB::table('members')->join('roles', 'roles.id', '=', 'members.role_id')->skip(3)->take($limit)->orderBy('rank', 'ASC')->get(['members.*', 'roles.role', 'roles.rank']);
+            } else {
+                $others = Member::where('name', '=', 'null');
+            }
+
+            $albums = Album::get();
+            return view('home.home', ['news' => $news, 'pinned' => $pinned, 'newEvent' => $newEvent, 'oldEvent' => $oldEvent, 'topMember' => $topMember, 'others' => $others, 'albums' => $albums]);
         } else
             return redirect()->action('AdminController@index');
+    }
+
+    public function goToAlbum(Request $request)
+    {
+        $title = "Gallery";
+
+        $id = $request->get('id');
+        $album = Album::find($id);
+        $albumName = $album->albumName;
+        $photos = DB::table('galleries')->join('albums', 'albums.id', '=', 'galleries.albumId')->where('albums.id', '=', $id)->get(['galleries.*']);
+
+        return view('home.album', ['title' => $title, 'photos' => $photos, 'albumName' => $albumName, 'albumId' => $id]);
     }
 
     public function insertMessage(Request $request)
